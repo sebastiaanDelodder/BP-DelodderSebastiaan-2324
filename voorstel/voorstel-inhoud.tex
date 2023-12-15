@@ -19,15 +19,47 @@ Het onderzoek is gericht op ontwikkelaars en kleinere of middelgrote organisatie
 \section{State-of-the-art}%
 \label{sec:state-of-the-art}
 
-Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein, d.w.z.\ een inleidende, doorlopende tekst over het onderzoeksdomein van je bachelorproef. Je steunt daarbij heel sterk op de professionele \emph{vakliteratuur}, en niet zozeer op populariserende teksten voor een breed publiek. Wat is de huidige stand van zaken in dit domein, en wat zijn nog eventuele open vragen (die misschien de aanleiding waren tot je onderzoeksvraag!)?
+\paragraph{Native vs Cross-Platform}
+\newline
+Allereerst is het belangrijk om het verschil tussen native en cross-platform applicaties te omkaderen. Zoals eerder vermeld, verwijst Native programmeren naar het ontwikkelen van een applicatie bedoeld om te draaien op een gekozen platform. Dit betekent dat de applicatie geschreven is in de programmeertaal die specifiek bedoeld is voor het platform waarop het draait. Denk maar bijvoorbeeld aan Java en Kotlin voor Android. Cross-platformen daarentegen maken gebruik van onafhankelijke frameworks en talen die op verschillende platformen kunnen draaien (bv JavaScript). Deze worden vervolgens omgezet naar Native code en Native componenten specifiek aan het platform waarop het draait (BRON2).
 
-Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek?
+Een voorbeeld van een Cross-Platform applicatie is een Hybride applicatie. Hierbij wordt er gesteund op webtechnologieën zoals HTML, CSS en JavaScript. Deze applicatie draait vervolgens in een native container van het specifieke platform. Dit wil zeggen dat de applicatie in de browser-engine van het desbetreffende platform draait (bron6). Bij Android is dit het WebView component, bij iOS wordt het UIWebView component gebruikt (BRON4). Aan de hand van een abstractielaag wordt er vervolgens toegang verkregen tot de mogelijkheden van het apparaat via JavaScript-API's (Bron6). Deze abstractielaag kan echter wel voor tragere prestaties zorgen, vooral op de CPU, aangezien de applicatie niet volledig "Native" is en als gevolg niet volledig geoptimaliseerd is aan het platform++++(Bron1).
 
-Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Hykes2013}! Denk zeker goed na welke werken je refereert en waarom.
+\paragraph{React Native vs Ionic}
+\newline
+Voor dit onderzoek is er specifiek gekozen voor React Native en Ionic. Beide zijn cross-platform frameworks die gebruik maken van JavaScript als basis. Ionic is een open-source Hybrid framework ontwikkeld door Drifty Co? en laat toe om te werken met populaire JavaScript frameworks zoals Angular, React en Vue(https://ionicframework.com/docs#license).+++++ (2019 rework) (++++++ hoe weergeven??????)+++++++++++++++++++
+React Native is, net zoals Ionic, een open-source framework. Het is ontwikkeld door Facebook en laat toe om te werken met React(bron3). Uit het brononderzoek bleek al snel dat er een paar misconcepties zijn over React Native. Zo wordt het vaak verkeerd beschouwd als een volledig "Native" framework. Het is en blijft Hybrid door het gebruik van JavaScript en JSX (een extensie van JavaScript) componenten. Het "Native" aspect in de naam verwijst naar het feit dat het framework gebruik maakt van Native UI-elementen (bron2). De JSX-componenten worden als het ware omgezet naar Native UI-elementen. Vandaar dat dit soms verkeerd wordt gecategoriseerd.
+VM???????????????????????
+SAMENVATTENDE ZIN
 
-Draag zorg voor correcte literatuurverwijzingen! Een bronvermelding hoort thuis \emph{binnen} de zin waar je je op die bron baseert, dus niet er buiten! Maak meteen een verwijzing als je gebruik maakt van een bron. Doe dit dus \emph{niet} aan het einde van een lange paragraaf. Baseer nooit teveel aansluitende tekst op eenzelfde bron.
+\paragraph{Architectuur van Android}
+\newline
+https://developer.android.com/guide/platform
 
-Als je informatie over bronnen verzamelt in JabRef, zorg er dan voor dat alle nodige info aanwezig is om de bron terug te vinden (zoals uitvoerig besproken in de lessen Research Methods).
+IMAGE
+++++++++++++
+Het Android platform is een mobiele architectuur ontwikkeld door Google. Deze wordt opgedeeld in de volgende lagen:
+  - System Apps: Dit zijn een verzameling standaardapplicaties die worden meegeleverd met het Android-platform. ++++ email sms etc 
+  - Java API Framework: Deze laag biedt een set van functionaliteiten die gebruikt worden door +++++
+  - Native C/C++ Libraries: Hierin bevinden zich de kerncomponenten en services van Android geschreven in C en C++ code. Daarnaast bevat dit ook de Java OpenGL API die instaat voor het renderen van 2D en 3D graphics.
+  - Android Runtime (ART): Dit is de virtuele machine van Android doe de applicaties uitvoert. Enkele features van ART zijn onder andere garbage collection, just-in-time (JIT) compilatie en ahead-of-time (AOT) compilatie.
+  - Hardware Abstraction Layer (HAL): Deze laag biedt een interface naar de onderliggende hardware. Deze zorgt ervoor dat de bovenliggende lagen niet rechtstreeks moeten communiceren met de hardware. Het bestaat uit verschillende library modules die elk een specifiek hardwarecomponent vertegenwoordigen.
+  - Linux Kernel: Ook wel de kern van het Android-platform. Deze biedt een hardware-abstractielaag, een beveiligingsmodel, process management, geheugen management en een netwerkstack. Daarnaast biedt het ook drivers voor de verschillende hardwarecomponenten+++++.
+
+
+
+%Dit state-of-the-art overzicht biedt een basis voor verder onderzoek naar de prestatieoptimalisatie van mobiele apps met specifieke aandacht voor React Native en Ionic op het Android-platform.
+
+
+%Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein, d.w.z.\ een inleidende, doorlopende tekst over het onderzoeksdomein van je bachelorproef. Je steunt daarbij heel sterk op de professionele \emph{vakliteratuur}, en niet zozeer op populariserende teksten voor een breed publiek. Wat is de huidige stand van zaken in dit domein, en wat zijn nog eventuele open vragen (die misschien de aanleiding waren tot je onderzoeksvraag!)?
+
+%Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek?
+
+%Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Hykes2013}! Denk zeker goed na welke werken je refereert en waarom.
+
+%Draag zorg voor correcte literatuurverwijzingen! Een bronvermelding hoort thuis \emph{binnen} de zin waar je je op die bron baseert, dus niet er buiten! Maak meteen een verwijzing als je gebruik maakt van een bron. Doe dit dus \emph{niet} aan het einde van een lange paragraaf. Baseer nooit teveel aansluitende tekst op eenzelfde bron.
+
+%Als je informatie over bronnen verzamelt in JabRef, zorg er dan voor dat alle nodige info aanwezig is om de bron terug te vinden (zoals uitvoerig besproken in de lessen Research Methods).
 
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur

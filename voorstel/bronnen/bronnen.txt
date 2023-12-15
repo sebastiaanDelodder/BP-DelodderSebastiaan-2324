@@ -1,3 +1,5 @@
+https://medium.com/coox-tech/deep-dive-into-react-natives-new-architecture-fb67ae615ccd
+
 Bron 1:
   Cross-platform ontwikkeling:
     - Verschillende benaderingen bestaan voor cross-platform ontwikkeling van mobiele toepassingen.
