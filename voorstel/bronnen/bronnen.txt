@@ -225,3 +225,6 @@ Het kiezen van het juiste framework is cruciaal voor prestaties en gebruikersint
 Verschillende frameworks zijn beschikbaar op de markt.
 Evaluatiecriteria omvatten documentatie, prestaties, communityondersteuning en leercurve.
 Frameworks worden beoordeeld op een schaal van 1-10 op basis van de genoemde criteria.
+
+
+Bron7: https://developer.android.com/guide/platform
