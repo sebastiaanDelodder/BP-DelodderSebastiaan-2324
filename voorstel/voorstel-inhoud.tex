@@ -26,10 +26,8 @@ Een voorbeeld van een Cross-Platform applicatie is een Hybride applicatie. Hierb
 
 \paragraph{React Native vs Ionic}
 \newline
-Voor dit onderzoek is er specifiek gekozen voor React Native en Ionic. Beide zijn cross-platform frameworks die gebruik maken van JavaScript als basis. Ionic is een open-source Hybrid framework ontwikkeld door Drifty Co en laat toe om te werken met populaire JavaScript frameworks zoals Angular, React en Vue(https://ionicframework.com/docs#license).+++++ (2019 rework) (++++++ hoe weergeven??????)+++++++++++++++++++
-React Native is, net zoals Ionic, een open-source framework. Het is ontwikkeld door Facebook en laat toe om te werken met React(bron3). Uit het brononderzoek bleek al snel dat er een paar misconcepties zijn over React Native. Zo wordt het vaak verkeerd beschouwd als een volledig "Native" framework. Het is en blijft Hybrid door het gebruik van JavaScript en JSX (een extensie van JavaScript) componenten. Het "Native" aspect in de naam verwijst naar het feit dat het framework gebruik maakt van Native UI-elementen (bron2). De JSX-componenten worden als het ware omgezet naar Native UI-elementen. Vandaar dat dit soms verkeerd wordt gecategoriseerd.
-VM???????????????????????
-SAMENVATTENDE ZIN
+Voor dit onderzoek is er specifiek gekozen voor React Native en Ionic. Beide zijn cross-platform frameworks die gebruik maken van JavaScript als basis. Ionic is een open-source Hybrid framework ontwikkeld door Drifty Co en laat toe om te werken met populaire JavaScript frameworks zoals Angular, React en Vue(BRON8). Het biedt een verscheidenheid aan UI-componenten aan die eruit zien en aanvoelen als Native componenten. Tot slot kan Cordova gebruikt worden om de applicatie te compileren naar een native applicatie voor het desbetreffende platform, zoals Android of iOS (BRON8).
+React Native is, net zoals Ionic, een open-source framework. Het is ontwikkeld door Facebook en laat toe om te werken met React(bron3). Uit het brononderzoek bleek al snel dat er een paar misconcepties zijn over React Native. Zo wordt het vaak verkeerd beschouwd als een volledig "Native" framework. Het is en blijft Hybrid door het gebruik van JavaScript- en JSX (een extensie van JavaScript) componenten. Het "Native" aspect in de naam verwijst naar het feit dat het framework gebruik maakt van Native UI-elementen en soms toelaat bepaalde delen van de applicatie in de Native taal te schrijven (bron3, bron2). Dit zorgt ervoor dat de applicatie sneller kan worden gecompileerd en bijgevolg ook sneller kan draaien. Het is als het ware een brug tussen een Native en Hybrid framework. Vandaar dat dit soms verkeerd wordt gecategoriseerd.
 
 \paragraph{Architectuur van Android}
 \newline
@@ -87,12 +85,6 @@ Deze bachelorproef begint met een literatuurstudie van Cross-Platform ontwikkeli
 
 In een volgende fase wordt er, op basis van de literatuurstudie, requirements opgesteld. Deze requirements zullen de basis vormen voor de Proof-of-Concept en specifiëren welke versies van de applicatie er zullen worden ontwikkeld. Dit om een zo breed mogelijke spectrum te kunnen testen. De long list en short list zullen ook in deze fase worden opgesteld. De long list bevat alle mogelijke oplossingen en benaderingen, terwijl de short list de meest veelbelovende opties bevat. Deze fase zal een tot twee weken duren.
 
-Hieropvolgend wordt er een Proof-of-Concept (PoC) ontwikkeld en geïmplementeerd. Er zullen twee applicaties opgesteld worden, de een in React Native en de ander in Ionic. Voor Ionic zal er gekozen worden voor het framework React om en zo nauwkeurig mogelijk beeld te geven van de performantieverschillen tussen beide frameworks. Er zullen verschillende versies van de applicatie ontwikkeld worden met elk een andere focus. Zo kan er getest worden naar specifieke doeleinden zoals bijvoorbeeld laden van afbeeldingen, requests naar een API, etc. Voor het CPU-gebruik zullen profiler tools gebruikt worden om deze te meten. Dit kan aan de hand van React Devtools voor React Native en Chrome Devtools voor Ionic. Voor het geheugengebruik zal er gebruikt gemaakt worden van de Android Profiler in Android Studio. Tot slot zal er ook nog gekeken worden naar laadtijden en de opslag van het gecompileerde APK-bestand. Deze fase zal ongeveer 4-5 weken duren.
-
-In de voorlaatste fase van de methodologie worden de resultaten van de PoC geanalyseerd en vergeleken. Hierbij wordt er gekeken naar de verschillen in performantie tussen beide frameworks. De nodige grafieken en tabellen zullen worden opgesteld om de resultaten te visualiseren. Deze fase zal ongeveer 2 weken in beslag nemen.
-
-Tot slot worden alle bevindingen gebundeld in een aaneensluitende scriptie. Deze zal een antwoord bieden op de centrale onderzoeksvraag. De uiteindelijke uiteenschrijving zal een vier- tot vijftal weken in beslag nemen.
-
 \begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{img/flowchart}
@@ -100,15 +92,15 @@ Tot slot worden alle bevindingen gebundeld in een aaneensluitende scriptie. Deze
   \label{fig:flowchart}
 \end{figure}
 
+Hieropvolgend wordt er een Proof-of-Concept (PoC) ontwikkeld en geïmplementeerd. Er zullen twee applicaties opgesteld worden, de een in React Native en de ander in Ionic. Voor Ionic zal er gekozen worden voor het framework React om en zo nauwkeurig mogelijk beeld te geven van de performantieverschillen tussen beide frameworks. Er zullen verschillende versies van de applicatie ontwikkeld worden met elk een andere focus. Zo kan er getest worden naar specifieke doeleinden zoals bijvoorbeeld laden van afbeeldingen, requests naar een API, etc. Voor het CPU-gebruik zullen profiler tools gebruikt worden om deze te meten. Dit kan aan de hand van React Devtools voor React Native en Chrome Devtools voor Ionic. Voor het geheugengebruik zal er gebruikt gemaakt worden van de Android Profiler in Android Studio. Tot slot zal er ook nog gekeken worden naar laadtijden en de opslag van het gecompileerde APK-bestand. Deze fase zal ongeveer 4-5 weken duren.
+
+In de voorlaatste fase van de methodologie worden de resultaten van de PoC geanalyseerd en vergeleken. Hierbij wordt er gekeken naar de verschillen in performantie tussen beide frameworks. De nodige grafieken en tabellen zullen worden opgesteld om de resultaten te visualiseren. Deze fase zal ongeveer 1 week in beslag nemen.
+
+Tot slot worden alle bevindingen gebundeld in een aaneensluitende scriptie. Deze zal een antwoord bieden op de centrale onderzoeksvraag. De uiteindelijke uiteenschrijving zal een drie- tot viertal weken in beslag nemen.
+
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwacht resultaat, conclusie}%
 \label{sec:verwachte_resultaten}
 
-Het verwachte resultaat van het onderzoek over de optimalisatie van mobiele app-prestaties tussen React Native en Ionic op het Android-platform suggereert dat React Native waarschijnlijk superieure prestaties zal vertonen. Deze veronderstelling is gebaseerd op de aanname dat de integratie van Native elementen in React Native een efficiëntere compilatie mogelijk maakt, resulterend in snellere laadtijden en een verminderd CPU-gebruik in vergelijking met Ionic. De focus op Native integratie wordt verondersteld een positieve invloed te hebben op de algehele app-prestaties, waarbij React Native een concurrentievoordeel biedt ten opzichte van Ionic op het Android-platform.
-
-Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de onderdelen van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet welk soort data je moet verzamelen en hoe je die moet meten.
-
-Wat heeft de doelgroep van je onderzoek aan het resultaat? Op welke manier zorgt jouw bachelorproef voor een meerwaarde?
-
-Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
+Het verwachte resultaat suggereert dat React Native vermoedelijk een kleine voorsprong zal hebben op Ionic voor de implementatie. Deze aanname heeft vooral te maken met de manier waarop React Native is opgebouwd. Zo maakt het gebruik van Native UI-elementen die rechstreeks een positief effect zullen hebben op de compilatie en bijgevolg de performantie. 
 

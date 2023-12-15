@@ -228,3 +228,5 @@ Frameworks worden beoordeeld op een schaal van 1-10 op basis van de genoemde cri
 
 
 Bron7: https://developer.android.com/guide/platform
+
+BRON8: https://ionicframework.com/docs#license
