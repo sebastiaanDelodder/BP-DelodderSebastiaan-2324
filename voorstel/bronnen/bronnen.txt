@@ -1,0 +1,232 @@
+https://medium.com/coox-tech/deep-dive-into-react-natives-new-architecture-fb67ae615ccd
+
+Bron 1:
+  Cross-platform ontwikkeling:
+    - Verschillende benaderingen bestaan voor cross-platform ontwikkeling van mobiele toepassingen.
+    - Dit rapport bespreekt mobiele webapplicaties, hybride applicaties, cross-compiled applicaties en native scripting applicaties.
+    - React Native maakt gebruik van de native scripting-benadering.
+
+  1.1 Hybride applicaties:
+    - Ontwikkeld met behulp van een webview-component met toegang tot native API's.
+    - Vereist installatie op het apparaat maar is beperkt als een mobiele webapplicatie.
+    - Opgebouwd met webtechnieken, met de mogelijkheid om native API's aan te roepen via een JavaScript hardware abstractielaag.
+    - Voorbeelden van hybride ontwikkelingsframeworks zijn PhoneGap, Trigger1 en Ionic2.
+
+  1.2 Cross-compiled applicaties:
+    - Geschreven in een niet-natuurlijke taal en gecompileerd tot een volledig native applicatie met behulp van een cross-compiler.
+    - Platformspecifieke code is nodig en niet alle code kan worden gedeeld.
+    - Bereikt een echte native ervaring door het gebruik van platformspecifieke bestanden.
+    - De efficiëntie van het gekozen cross-compile framework is cruciaal.
+
+  1.3 Native scripting applicaties:
+    - Native scripting applicaties gebruiken een interpreter die is ingesloten bij de applicatie op het mobiele apparaat.
+    - De interpreter voert code uit tijdens runtime om oproepen naar native API's te maken.
+    - Kan elke scripttaal gebruiken die interpreteerbaar is op het apparaat, waarbij JavaScript veelvoorkomend is.
+    - Voorbeelden van native scripting frameworks zijn Appcelerator Titanium, NativeScript en React Native, die allemaal JavaScript gebruiken.
+    - Deze frameworks zijn open source en verwelkomen bijdragen van het publiek.
+
+
+  React Native:
+  - React Native is een native scripting-framework voor het maken van mobiele applicaties die op verschillende platforms kunnen draaien.
+  - Geïntroduceerd in 2015 tijdens de React.js-conferentie.
+  - Oorspronkelijk alleen ondersteuning voor iOS-ontwikkeling, later uitgebreid met Android in september 2015.
+  - Maakt het delen van een aanzienlijk deel van de applicatiecode tussen platforms mogelijk.
+  - Open source, waardoor bijdragen van de programmeergemeenschap mogelijk zijn.
+
+  Fundament:
+  - Gebaseerd op principes en concepten van ReactJS, een open-source JavaScript-framework sinds 2013 (intern gebruikt door Facebook sinds 2011).
+
+
+  Interne Structuur:
+
+      Zowel ReactJS als React Native werken aan de applicatie-weergavehiërarchie wanneer er wijzigingen optreden.
+      Traditionele benaderingen voor het omgaan met wijzigingen in webontwikkeling omvatten:
+      Het sturen van een nieuw HTML-verzoek naar de server.
+      Het gebruik van client-side HTML-templating voor gedeeltelijke herrendering van de pagina.
+      Het maken van imperatieve HTML DOM-wijzigingen (beschouwd als de meest efficiënte).
+      De laatste benadering kan sneller zijn, maar kan uitdagingen opleveren bij de ontwikkeling van grotere applicaties, met foutgevoeligheid en moeilijk onderhoud.
+      Applicatiestructuur:
+
+      Een React Native-applicatie wordt weergegeven als een boom van samengestelde componenten.
+      Elke samengestelde component heeft een renderfunctie die een deelboom van virtuele applicatiehiërarchieën retourneert.
+      Samengestelde componenten slaan de interne status op en luisteren naar statuswijzigingen.
+      Bij een statuswijziging wordt de component opnieuw gerenderd als reactie op het wijzigingsevenement.
+
+      Open Platform:
+
+      Android is een open platform dat een besturingssysteem, gebruikersinterface en ingebouwde applicaties omvat.
+      Ontwikkeld door de Open Handset Alliance, bestaande uit 84 technologie- en mobiele bedrijven.
+      Ontwikkelingsgereedschappen:
+
+      Native Android-applicaties worden ontwikkeld met Java.
+      De ontwikkelingsomgeving omvat Android SDK en Java JDK.
+      Aanbevolen IDE voor Android-ontwikkeling is Android Studio, gebaseerd op IntelliJ IDEA.
+      Debugging:
+
+      Google biedt een emulator voor debugging die elke Android-apparaat kan emuleren.
+      Applicaties kunnen ook worden geïnstalleerd en uitgevoerd op een fysiek Android-apparaat.
+      OS-structuur:
+
+      Het Android-platform is gebaseerd op de Linux-kernel en bestaat uit meerdere lagen.
+      De Android-architectuur wordt gezien als een reeks lagen die samen het platformstack vormen.
+      Applicatieontwikkelaars werken doorgaans met het hoog-niveau framework en hebben toegang tot kerncomponenten via het applicatieframework.
+      Binder Inter-Process Communication (Binder IPC):
+
+      Maakt toegang mogelijk tot onderliggende Android-functionaliteit.
+      Systeemaanroepen kunnen worden gedaan vanaf de client naar componenten zoals de vensterbeheerder of activiteitenbeheerder.
+      System Services Layer:
+
+      Bevat componenten zoals de vensterbeheerder en activiteitenbeheerder.
+      Communiceert met native bibliotheken en Android-runtimecomponenten.
+      Maakt verbinding met de Hardware Abstraction Layer (HAL) om compatibiliteit te bieden met lagere niveaudrivers.
+      Hardware Abstraction Layer (HAL):
+
+      Interfaceert met lagere niveaudrivers en maakt aanpassing mogelijk van communicatie tussen hardwarecomponenten en hoger niveau systemen.
+      Elke hardwarecomponent heeft zijn eigen instantie van HAL.
+      Volgt een standaard communicatieprotocol met implementatiespecificaties beschreven in een metabestand.
+      Linux-kernel:
+
+      Aan de onderkant van de Android-stack.
+      Kern van het Android-platform, uitgebreid met de Binder IPC-driver en andere drivers geschikt voor een mobiele omgeving.
+
+      Er zijn veelbelovende resultaten gevonden voor React Native, waarbij geen kritieke prestatieproblemen werden geïdentificeerd.
+      Toekomstig werk aan de prestaties van React Native moet zich richten op mogelijke problemen met CPU-gebruik.
+      Ondanks een toepassing met lage intensiteit werd de CPU-belasting verrassend hoog tijdens gebruikersinteracties.
+      Het verschil ten opzichte van native kan problematisch worden voor toepassingen die meer CPU-intensief zijn.
+      De resultaten met betrekking tot het delen van code over platforms leverden vergelijkbare resultaten op als de beweringen van Facebook over hun eerste geporteerde Android-toepassing.
+      Ongeveer 75% van de toepassing kan worden gebruikt voor zowel Android als iOS, wat zowel vanuit ontwikkeltijd als perspectief gunstig is.
+
+Bron2:
+  Hybride webapplicatie:
+    Combineert webtechnologieën met native ontwikkelingsbenaderingen.
+    Maakt gebruik van de browser-engine van het apparaat en synchroniseert HTML-content in native webcontainers zoals WebView in Android, UIWebView in iOS.
+    Biedt toegang tot platformspecifieke functionaliteiten via API's.
+    Hergebruikt code voor verschillende platforms, maar de gebruikerservaring kan onaangenaam zijn vanwege het ontbreken van native UI-componenten en de traagheid van de app bij het laden van webcontainers.
+    Wordt gedistribueerd via appstores, in tegenstelling tot responsieve webapplicaties die via webbrowsers worden geopend.
+  
+  Cross-compiled application:
+    Code wordt gecompileerd naar platformspecifieke, hoogwaardige native code met behulp van een kruiscompiler.
+    Biedt een native gevoel en prestaties omdat het toegang heeft tot alle native UI-elementen en API's.
+    Vereist mogelijk platformspecifieke aanpassingen en configuraties om toegang te krijgen tot apparaatfuncties zoals audio en video, native kalenderapplicaties, apparaatinformatie, enz.
+    Wordt ontwikkeld met behulp van cross-platform mobiele applicatiekaders zoals React Native, Flutter, enz.
+    De kenmerken van React Native en Flutter worden besproken in de daaropvolgende secties.
+
+  
+  React Native Overzicht:
+
+  React Native is een open-source framework voor het ontwikkelen van mobiele applicaties die cross-platform zijn.
+  Het maakt gebruik van JavaScript en is gebaseerd op de React JavaScript-bibliotheek, oorspronkelijk ontwikkeld door Facebook voor webapplicaties.
+  React Native ondersteunt native gecompileerde mobiele apps en is een uitbreiding van ReactJS.
+  React en JSX:
+
+  React Native maakt gebruik van ReactJS, een JavaScript-bibliotheek voor het bouwen van gebruikersinterfaces.
+  Het gebruikt JavaScript XML (JSX) om XML binnen JavaScript in te sluiten voor het schrijven van UI-elementen.
+  Mobiele App-ontwikkeling met React Native:
+
+  React Native maakt de ontwikkeling van mobiele applicaties met een native uitstraling en weergave mogelijk.
+  Het maakt toegang tot platformspecifieke UI-elementen mogelijk met behulp van JavaScript-code.
+  Onderscheidende Functie ten opzichte van Hybride Apps:
+
+  In tegenstelling tot hybride mobiele applicaties compileert React Native JavaScript-code naar platformspecifieke uitvoerbare code.
+  Hybride apps gebruiken vaak WebView, terwijl React Native gebruikmaakt van native API's en UI-componenten.
+  Transformatie tijdens het compileren:
+
+  React Native compileert Virtual DOM UI-elementen naar equivalente platformspecifieke UI-elementen tijdens het compileren.
+  Componenten in React Native:
+
+  Componenten dienen als de belangrijkste bouwstenen van React Native-applicaties.
+
+Bron 3:
+  
+Overzicht van React Native:
+
+React Native is een populair mobiel app-framework gebaseerd op JavaScript.
+Het maakt de ontwikkeling van native iOS- en Android-apps mogelijk met dezelfde codebasis.
+Het is gebouwd op React, een JavaScript-pakket dat door Facebook wordt gebruikt voor het bouwen van gebruikersinterfaces, maar het richt zich op mobiele platforms in plaats van browsers.
+Ontwikkelaars kunnen echt "native" mobiele applicaties creëren met behulp van een JavaScript-bibliotheek.
+Ontwikkelingsproces:
+
+React Native-applicaties worden ontwikkeld met behulp van JavaScript en JSX (een op XML lijkende opmaaktaal).
+Optimalisatie is cruciaal voor prestaties en omvat het verminderen van de bundelgrootte en het RAM-gebruik.
+Opstarttijd:
+
+De tijd die nodig is voor een app om materiaal uit zijn database te halen bij het opstarten wordt "opstarttijd" genoemd.
+De opstarttijd kan worden verbeterd door de bundelgrootte en het RAM-gebruik te verminderen.
+Voordelen van React Native:
+
+Het stelt webontwikkelaars in staat om robuuste mobiele applicaties te bouwen met hun bestaande kennis van JavaScript.
+Het faciliteert snellere mobiele ontwikkeling en effectieve uitwisseling van code over iOS, Android en het web.
+Biedt een "native" uitstraling zonder concessies te doen aan de gebruikerservaring of de kwaliteit van de applicatie.
+Volgt de benadering van "leer een keer, schrijf overal", waardoor het niet nodig is om verschillende technologieën te leren voor elk mobiel platform.
+Overwegingen:
+
+React Native is een nieuwe technologie met ruimte voor verbetering, en teams moeten beoordelen of ze de bijbehorende onvoorspelbaarheid aankunnen.
+Ondanks zijn relatieve nieuwheid heeft React Native erkenning gekregen voor het bouwen van mobiele applicaties.
+Prestatievergelijking:
+
+React Native-applicaties lijken op native applicaties die zijn gebouwd met oudere technologieën.
+In tegenstelling tot andere hybride frameworks doet React Native geen concessies aan prestaties of de algehele ervaring door te vertrouwen op webtechnologieën voor de constructie van iOS- en Android-apps.
+Conclusie:
+
+React Native wordt erkend voor zijn effectiviteit bij het bouwen van mobiele applicaties.
+De benadering van "leer een keer, schrijf overal" is gerechtvaardigd vanwege het vermogen om te ontwikkelen voor meerdere platforms zonder fundamenteel verschillende technologieën te leren.
+
+
+Bron 4:
+Overzicht van het Ionic Framework:
+
+Bestaand open source-framework voor de ontwikkeling van mobiele toepassingen.
+Maakt gebruik van HTML, CSS en JavaScript voor het bouwen van mobiele interfaces.
+Biedt tools en faciliteiten voor het maken van toepassingen met een native uitstraling.
+Vereist een native wrapper (verpakking) om op verschillende mobiele apparaten te kunnen draaien.
+Hybride Toepassingen:
+
+Hybride toepassingen gebruiken webtalen voor implementatie.
+Draaien in een native container, waardoor compatibiliteit met verschillende mobiele besturingssystemen mogelijk is.
+Gebouwd op een vergelijkbare manier als websites, maar richten zich op een WebView binnen een native container.
+Maakt gebruik van Apache Cordova voor toegang tot mogelijkheden van mobiele apparaten via JavaScript-API's.
+Kenmerken en Functionaliteiten van Ionic:
+
+Op HTML5 gebaseerd mobiel ontwikkelingsframework.
+Beheert het uiterlijk en de gebruikersinterface van hybride mobiele toepassingen.
+Biedt SDK-achtige functionaliteit voor iOS en Android.
+Gebruikt het Angular-framework voor aangepaste componenten en interactiemethoden.
+Ontwikkelingsproces met Ionic:
+
+Ionic CLI (Command Line Utility) wordt gebruikt voor het maken en implementeren van toepassingen.
+Het installatieproces omvat een vooraf gegenereerde app-setup voor eenvoudigere ontwikkeling.
+Ondersteunt modulaire ontwikkeling voor verbeterde onderhoudbaarheid en updates.
+Productie van Cross-Platform Toepassingen:
+
+Maakt cross-platform ontwikkeling mogelijk voor verschillende mobiele besturingssystemen.
+Volgt het MVC-architectuur via Angular voor het maken van single-page applicaties.
+Ondersteunt eenvoudige ontwikkeling met webtechnologieën.
+
+Bron 5: (skip)
+
+Bron6:
+Voordelen van het hybride platform:
+
+Kostenbesparing en tijdsbesparing met mobiele toepassingen.
+Gemakkelijkere ontwikkeling met componenten voor een native gebruikerservaring.
+Fungeert als een brug tussen web- en native benaderingen.
+Gebouwd met behulp van HTML, CSS en JavaScript.
+Maakt gebruik van de browser-engine voor het renderen van HTML-content.
+Belicht de mogelijkheden van het apparaat via een abstractielaag.
+Toepasbaar voor zowel op server gebaseerde als op zichzelf staande toepassingen.
+Ontwikkelingsproces:
+
+Hybride toepassingen kunnen tijdens de ontwikkeling in de browser worden bekeken.
+Apparaatmogelijkheden worden blootgesteld via een JavaScript API.
+Hybride apps moeten worden gedownload en geïnstalleerd op mobiele apparaten.
+Frameworks voor hybride platformen:
+
+Het kiezen van het juiste framework is cruciaal voor prestaties en gebruikersinterface.
+Verschillende frameworks zijn beschikbaar op de markt.
+Evaluatiecriteria omvatten documentatie, prestaties, communityondersteuning en leercurve.
+Frameworks worden beoordeeld op een schaal van 1-10 op basis van de genoemde criteria.
+
+
+Bron7: https://developer.android.com/guide/platform
+
+BRON8: https://ionicframework.com/docs#license
