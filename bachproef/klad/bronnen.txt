@@ -76,3 +76,7 @@ https://iscap.us/proceedings/2023/pdf/5944.pdf
 ??:
 An empirical investigation of performance overhead in cross-platform mobile development frameworks
 https://link.springer.com/article/10.1007/s10664-020-09827-6
+
+
+// REACT NATIVE
+
