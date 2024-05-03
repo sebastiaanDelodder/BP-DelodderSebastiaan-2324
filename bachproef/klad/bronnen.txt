@@ -1,0 +1,82 @@
+P1: NATIVE VS CROSS Platform
+
+JavaScript in mobile applications: React native vs ionic vs NativeScript vs native development (niet beschikbaar)
+(https://ieeexplore.ieee.org/abstract/document/8399283)
+
+Cross-Platform Mobile Development: An Alternative to Native Mobile Development (wel 2013)
+https://www.diva-portal.org/smash/get/diva2:664680/fulltext01.pdf
+  - Native: expensive
+  - Native: beter performance
+
+Native, hybrid, or cross-platform apps?
+https://powerapps.microsoft.com/en-us/native-vs-cross-platform-apps/ (bron 12)
+  - samenvatting: zie blad
+
+
+Deep dive into React Native’s New Architecture
+https://medium.com/coox-tech/deep-dive-into-react-natives-new-architecture-fb67ae615ccd (bron1)
+
+Cross platform mobile application development : a comparison study of React Native Vs Flutter (bron2)
+https://jyx.jyu.fi/handle/123456789/70969
+
+(bron 6 voor hybride)
+
+ALL:
+COMPARISON BETWEEN REACT NATIVE AND NATIVE APPLICATION DEVELOPMENT PLATFORM (bron 11)
+https://trepo.tuni.fi/bitstream/handle/10024/122735/BoharaMonika.pdf?sequence=2
+
+Native:
+
+  - Native mobiele applicatieontwikkeling is een traditionele benadering gericht op specifieke platforms of apparaten.
+  - Native applicaties worden ontwikkeld met platformspecifieke programmeertalen en architecturen.
+  - Voor Android wordt doorgaans Java gebruikt, terwijl iOS-apps typisch worden gecodeerd in Objective-C of Swift.
+  - Aanbevolen architecturen zijn MVC voor iOS en MVVM voor Android.
+  - Applicaties worden gedistribueerd via app stores zoals Google Play of Apple App Store.
+  - Native apps maken gebruik van apparaatspecifieke hardware en software zoals GPS en camera.
+  - Voordelen zijn onder meer verbeterde gebruikerservaring door het gebruik van native code en toegang tot platformspecifieke API's en bibliotheken.
+  - UI-componenten worden gemaakt met behulp van native UI-tools.
+  - Native apps functioneren doorgaans offline, hoewel sommige functies internetconnectiviteit vereisen.
+  - Ondanks een betere UX vereist native app-ontwikkeling aparte codebases voor elk platform.
+  - Ontwikkelen voor meerdere platforms vereist kennis van de ontwikkelingsmethoden, talen en ontwerprichtlijnen van elk platform.
+  - Deze vereisten vergroten de behoefte aan geschoolde ontwikkelaars, wat de ontwikkelingskosten verhoogt.
+
+Hybrid: 
+
+  - Hybride applicaties combineren de functies van zowel native als webapplicaties.
+  - Net als native applicaties kunnen hybride applicaties rechtstreeks op het apparaat worden gedownload en geïnstalleerd.
+  - Dit geeft de applicatie toegang tot de hardwaremogelijkheden van het apparaat.
+  - Tegelijkertijd worden hybride applicaties ontwikkeld met behulp van webtechnologieën zoals HTML5, CSS en JavaScript.
+
+Cross: 
+- Een cross-platformapplicatie is een applicatie die op meerdere platforms kan worden geïmplementeerd.
+- Volgens Techopedia is cross-platform een systeem of computerproduct dat goed kan werken op verschillende platforms of besturingssystemen.
+- Cross-platform is een term die wordt gebruikt in verschillende delen van de IT-industrie met als doel een service te ontwikkelen die geanalyseerd of ingezet kan worden op meerdere besturingssystemen en een native gevoel biedt.
+- Het is een technologie die al heel lang bestaat. Het eerste cross-platform framework voor mobiele applicatieontwikkeling, Phonegap, werd uitgebracht in het begin van 2008.
+- De ontwikkeling van deze applicaties gebeurt met behulp van cross-platformtools.
+- Aangezien de applicaties ontwikkeld met cross-platformtools veel code kunnen hergebruiken tussen verschillende platforms, lijken deze applicaties op hybride en progressieve webapplicaties.
+- Deze applicaties moeten ook worden gedownload vanuit een winkel op het apparaat zelf, net als hybride en native applicaties. Echter, in tegenstelling tot hybride applicaties, compileren cross-platformtools de code naar native code, wat de applicatie voorziet van de functionaliteiten van een native applicatie.
+
+React Native: 
+- React Native wordt gedefinieerd als een native scripttool/framework voor algemene cross-platform mobiele applicatieontwikkeling, geïntroduceerd door Facebook en uitgebracht in 2015.
+- React Native-applicaties worden ontworpen en ontwikkeld met behulp van JavaScript ECMAScript 2015 (ES2015 of ES6).
+- ECMAScript is een scripttaal gebaseerd op JavaScript en beïnvloedt hoe webpagina's eruitzien of zich gedragen.
+- React Native ondersteunt zowel Android als iOS-besturingssystemen.
+- De architectuur van React Native bestaat voornamelijk uit drie delen: native modules, JavaScript-virtuele machine en React Native-brug.
+- De native codes voor iOS en Android worden voornamelijk geschreven in respectievelijk Objective-C en Java. In React Native hoeven ontwikkelaars echter geen native codes te schrijven voor iOS of Android.
+- React Native gebruikt JavaScriptCore om de code uit te voeren. JavaScriptCore is een open-source JavaScript-engine gebouwd voor WebKit.
+- De React Native-brug is een communicatiebrug tussen native en JavaScript-threads. De React Native-brug helpt bij het routeren van de oproepen van de native modules naar de native API's.
+- React Native is gebouwd op de principes die worden gebruikt en geïmplementeerd in React.js, ook wel bekend als React.
+- React is een op componenten gebaseerd framework voor het maken van interfaces voor webapplicaties waarvan het basiselement een component is.
+- Een React-component implementeert een render() methode die een invoer accepteert en de uitvoer dienovereenkomstig retourneert.
+- Afhankelijk van de vereisten van een project worden verschillende componenten samengesteld om een complexere UI te bouwen, en de overdracht van gegevens tussen de componenten gebeurt met behulp van props, van ouder naar kind.
+
+Cross-Platform App Development: A Comparative Study of PWAs and React Native Mobile Apps
+https://iscap.us/proceedings/2023/pdf/5944.pdf
+
+??:
+An empirical investigation of performance overhead in cross-platform mobile development frameworks
+https://link.springer.com/article/10.1007/s10664-020-09827-6
+
+
+// REACT NATIVE
+
