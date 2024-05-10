@@ -7,11 +7,14 @@
 
 % Pas na deze inleidende paragraaf komt de eerste sectiehoofding.
 
-TODO: meer verhalende referenties (= inline referenties) gebruiken
+OPGELET: Dit hoofdstuk zal hier en daar nog wat aangepast worden. Iets meer verhalende referenties (= inline referenties) en een extra alinea bij zowel Ionic als React Native, over hoe zij het Native-aspect benaderen. Dit is als gevolg van de toch wat verassende resultaten uit de Proof-of-Concept en die nodig is voor de verdere verklaring in Hoofdstuk 5.
+
+
 
 In dit hoofdstuk wordt de huidige stand van zaken besproken binnen het onderzoeksdomein. Het doel is om een duidelijk beeld te scheppen van de huidige situatie en de bestaande kennis over het onderwerp en zo een goede basis te vormen voor het verdere verloop van het onderzoek. In dit hoofdstuk wordt er eerst gesproken over het verschil tussen Native, Cross-Platform en Hybrid Development. Het is namelijk noodzakelijk hier een goed beeld van te vormen om de juiste omkadering te geven van beide frameworks. Vervolgens wordt er dieper ingegaan op de Android infrastructuur. Vanwege de verschillen tussen de infrastructuur en werking van React Native en Ionic, is het van belang ook een begrip te hebben van de onderliggende componenten en hun relaties. Daarna zal er een vergelijking gemaakt worden tussen de twee frameworks en zullen er verklaringen of redenen gegeven worden op welke vlakken zij kunnen verschillen en waarom. Tot slot wordt er nog een korte paragraaf gewijd aan de performantie van mobiele applicaties omtrent streaming en hoe dit een impact kan hebben op de keuze van het framework.
 
-\paragraph{Native vs Cross-Platform vs Hybrid}
+\section{Native vs Cross-Platform vs Hybrid}
+\label{sec:native-cross-hybrid}
 
 Voordat er dieper ingegaan wordt op React Native en Ionic, is het belangrijk om ze te situeren binnen Mobile Development. Er kunnen drie grote categorieën onderscheiden worden: Native, Cross-Platform en Hybrid \autocite{Bron12}. Native Development is het "native" ontwikkelen van een applicatie voor een specifiek platform. Dit wil zeggen dat een applicatie ontwikkeld wordt in de programmeertaal van het platform, zoals Java of Kotlin voor Android-toestellen en Objective-C of Swift voor iOS-toestellen \autocite{Bron1, Bron11}. Met andere woorden maken deze applicaties gebruik van de officiële ontwikkelingsomgevingen en architecturen van het platform in kwestie. Dit brengt een aantal voordelen met zich mee. Door het gebruik van de native-architectuur en native-UI-tools, kan men profiteren van alle functionaliteiten die het platform aanbiedt. Dat zorgt dan weer voor een optimale performantie en bijgevolg een betere gebruikservaring. Bovendien vereisen ook bepaalde applicaties een native ontwikkeling. Denk hierbij aan programma's die veel resources nodig hebben zoals games \autocite{Bron12}. De keuze voor een native-aanpak brengt echter toch wat nadelen met zich mee. Mobiele applicaties worden echter vaak ontwikkeld met meerdere platformen tegelijk in gedachten, waardoor dezelfde app als het ware dubbel moet worden geprogrammeerd, met als gevolg hogere kosten en development tijdsduur \autocite{Bron12}. Bovendien vereist dit extra kennis van de medewerkers en ontwikkelaars omdat er voor elk platform een andere programmeertaal gebruikt wordt. Kleinere organisaties of start-ups hebben vaak niet altijd voldoende middelen om zulke projecten te financieren. Vandaar dat Cross-Platform en Hybrid Development een oplossing kan bieden.
 
@@ -22,7 +25,8 @@ Tot slot is er nog Hybrid Development. Dit type bevindt zich ergens tussen Nativ
 Het verschil tussen Cross-Platform en Hybrid development vormt een kernaspect binnen dit onderzoek. Ionic wordt namelijk bestempeld als een Hybrid framework, terwijl React Native een Cross-Platform framework is \autocite{Bron4, Bron1}. Beiden zijn echter mogelijkheden om eenmalig een programma te coderen en vervolgens uit te rollen op meerdere platformen. Beiden zijn bovendien ook niet Native, met de bijhorende impact op de performantie. Hoe de infrastructuur van beide frameworks in elkaar zit, zal in een volgend onderdeel besproken worden.
 
 
-\paragraph{Android infrastructuur}
+\section{Android infrastructuur}
+\label{sec:android-infrastructuur}
 
 Een belangrijk aspect van dit onderzoek is de infrastructuur van Android. Android is een besturingssysteem ontwikkeld door Google en is gebaseerd op de Linux-kernel \autocite{Bron13}. Het besturingssysteem is open-source en wordt voornamelijk gebruikt op smartphones en tablets. In dit onderdeel wordt de Android infrastructuur besproken en worden de verschillende lagen toegelicht. Dit is belangrijk om een goed beeld te vormen van de onderliggende componenten en hun relaties. Dit zal later in het onderzoek helpen om de verschillen tussen React Native en Ionic beter te begrijpen.
 
@@ -45,7 +49,8 @@ Nu komen we bij de voorlaatste laag, namelijk de Hardware Abstraction Layer of k
 
 Tot slot is er nog de laatste laag: de Linux Kernel \autocite{Bron7, Bron13}. Dit wordt ook wel gezien als de kern van het Android platform. Een belangrijk proces is dat de ART component deze kernel gebruikt om het geheugen en de processen te gaan beheren \autocite{Bron7, Bron13}. Zaken zoals threading en low-level memory management worden hier geregeld. Vanuit deze laag wordt er uiteindelijk gecommuniceerd met de onderliggende hardware van het toestel om de applicatie te draaien \autocite{Bron13}.
 
-\paragraph{React Native}
+\section{React Native}
+\label{sec:react-native}
 
 Dit onderzoek focust zich specifiek op React Native en Ionic. React Native is een open-source framework ontwikkeld door Facebook. Het werd gelanceerd in 2015 en was oorspronkelijk bedoeld voor het programmeren van mobiele applicaties voor iOS-toestellen \autocite{Bron2, Bron1}. In september van datzelfde jaar, enkele maanden na de initiële lancering, was het ook mogelijk om via dezelfde codebase de applicatie te releasen op Android \autocite{Bron1}.
 
@@ -74,21 +79,28 @@ In React onderscheiden we twee type components: React Composite Components en Re
 
 De volgende fase is dan de Commit fase. Deze bestaat uit twee grote stappen: de Layout Calculation en Tree Promotion \autocite{Bron15}. Bij Layout Calculation wordt alle informatie omtrent de layout, die oorspronkelijk afkomstig is van de React Element Tree, berekend. Zo wordt voor elk component bepaald hoeveel ruimte ze gaat innemen op het scherm \autocite{Bron15}. Bij Tree Promotion wordt de nieuwe Shadow Tree als het ware "gepromoveerd" en klaargezet om gemounted te worden \autocite{Bron15}. In eenvoudigere termen betekent dit dat de nieuwe Shadow Tree klaarstaat om op het scherm te worden weergegeven. Zowel de Layout Calculation als de Tree Promotion verlopen asynchroon met elkaar en worden voor het grootste deel in C++ berekend.
 
-(TODO: voordelen van Fabric en C++ berekeningen)
+(Nog te verwerken in beperkte mate: voordelen van Fabric en C++ berekeningen)
 
 De laatste fase, de Mount fase, bestaat uit het renderen van het scherm. Hierbij wordt voor elke React Shadow Node uit de Shadow Tree, samen met de berekende layout informatie, een Host View aangemaakt \autocite{Bron15}. Een Host View is een View die een instantie is van een Android View of een iOS UIView. De React Shadow Nodes worden dus met andere woorden omgezet naar native View-componenten van het desbetreffende platform \autocite{Bron15}. Vandaar de naam "Native" in React Native.
 
 Het is belangrijk hierbij te vermelden dat React Native niet een volledig "Native" framework is. Volgens \autocite{Bron3} en \autocite{Bron2} bleek dat er vaak nog wat misconcepties bestaan vanwege deze naam en wordt het dus vaak foutief bestempeld. Het is en blijft een Cross-Platform framework. Het maakt inderdaad gebruik van native componenten, maar vanwege de cross-compiling tussenstap kan dit niet geplaatst worden onder Native Development.
 
-\paragraph{Ionic}
-
-(nog verder uit te breiden)
+\section{Ionic}
+\label{sec:ionic}
 
 Ionic is net zoals React Native een open source framework. \textcite{Bron8} laat toe om via een webframework naar keuze zoals Angular, React of Vue een applicatie te ontwikkelen die vervolgens kan uitgerold worden op meerdere platformen. Het grote voordeel aan Ionic is dat het gebruik maakt van webtechnologieën zoals HTML, CSS en JavaScript \autocite{Bron8}. Dit heeft als gevolg dat de codebase in Ionic niet alleen kan dienen voor het ontwikkelen van mobiele applicaties, net zoals React Native, maar dat dezelfde codebase ook kan gebruikt worden voor het ontwikkelen van de website zelf. Een ontwikkelaar kan dus zijn of haar applicatie uitrollen op drie platformen tegelijk. Dit onderzoek zal zich specifiek focussen op Ionic in samenwerking met React. Dit vanwege het feit dat React Native ook steunt op React en dat er op deze manier een zeer nauwkeurig beeld kan gegeven worden tussen beide frameworks. Indien er voor een andere framework gekozen zou zijn, zoals bijvoorbeeld Angular of Vue, zou het mogelijk zijn dat bepaalde performantieverschillen eerder te wijten zijn aan de verschillen tussen Angular en React, dan tussen React Native en Ionic.
 
-"Ionic React" maakt gebruik van dezelfde React componenten zoals React Native \autocite{Bron8}. Er wordt dus opnieuw gesteund op JSX-componenten, met bovendien extra flexibiliteit van webtechnologieën zoals HTML en CSS. Veel Ionic mobiele applicaties starten eigenlijk vaak als een webapplicatie die vervolgens wordt omgezet naar een mobiele applicatie \autocite{Bron19}. Vroeger gebeurde deze omzetting via Cordova, maar ondertussen heeft Ionic hun eigen versie ontwikkeld, genaamd Capacitor \autocite{Bron19}. (TODO: Nog wat extra algemene info Capacitor)
+"Ionic React" maakt gebruik van dezelfde React componenten zoals React Native \autocite{Bron8}. Er wordt dus opnieuw gesteund op JSX-componenten, met bovendien extra flexibiliteit van webtechnologieën zoals HTML en CSS. Veel Ionic mobiele applicaties starten eigenlijk vaak als een webapplicatie die vervolgens wordt omgezet naar een mobiele applicatie \autocite{Bron19}. Vroeger gebeurde deze omzetting via Cordova, maar ondertussen heeft Ionic hun eigen versie ontwikkeld, genaamd Capacitor \autocite{Bron19}.
 
-Via de Capacitor CLI kan de ontwikkelaar via een simpele commando zijn of haar React applicatie laten builden naar een native Android en/of iOS applicatie \autocite{Bron21}. Dit gebeurt door de webapplicatie te bundelen en vervolgens in een native container te plaatsen. Vervolgens wanneer de applicatie wordt geopend, wordt de native webview van het platform aangesproken en de componenten ingeladen \autocite{Bron19}. Het is als het ware een webapplicatie die in een native container draait. De applicatie kan bovendien nog steeds gebruikmaken van native functionaliteiten zoals de camera, GPS, enzoverder (hoe?). (TODO: misschien erbij vermelden hoe de conversie plaatsvindt?)
+%(TODO: Nog wat extra algemene info Capacitor)
+
+Via de Capacitor CLI kan de ontwikkelaar via een simpele commando zijn of haar React applicatie laten builden naar een native Android en/of iOS applicatie \autocite{Bron21}. Dit gebeurt door de webapplicatie te bundelen en vervolgens in een native container te plaatsen. Vervolgens wanneer de applicatie wordt geopend, wordt de native webview van het platform aangesproken en de componenten ingeladen \autocite{Bron19}. Het is als het ware een webapplicatie die in een native container draait. De applicatie kan bovendien nog steeds gebruikmaken van native functionaliteiten zoals de camera, GPS, enzoverder.
+
+Dit laatste aspect maakt Ionic een heel interessant framework voor Hybrid Development. Zoals eerder aangehaald draaien Hybrid applicaties in een webview of browser-engine van het platform. Om deze reden wordt er soms aangenomen dat deze applicaties niet nuttig zijn omdat typische native functionaliteiten zoals de camera of GPS niet gebruikt kunnen worden. Er wordt vaak gedacht dat deze applicaties slechts enkel en alleen een webapplicatie zijn die in een native container draaien. Ionic biedt echter verschillende plugins aan die het toch mogelijk maken om native API's zoals de GPS en camera aan te spreken. \textcite{Bron22} toont namelijk een lijst van alle beschikbare plugins die Capacitor aanbiedt en steunt daarnaast op een uitgebreide community die zelf plugins ontwikkelen. Dit onderscheidt Ionic van veel andere Hybrid frameworks die enkel webfunctionaliteiten aanbieden en staaft de keuze om Ionic te vergelijken met React Native voor dit onderzoek.
+
+
+OPMERKING: dit stukje wordt nog een beetje uitgebreid door de conversie extra uit te leggen + hoe Ionic het native aspect aanpakt aan de hand van de afbeelding hierboven.
+
 
 %Deze kan hierdoor nog steeds gebruikmaken van verschillende native functionaliteiten zoals de camera, GPS, enzoverder. Het grote verschil met het framework React Native is dat bij Ionic de mobiele applicatie in een webview wordt geplaatst. 
 
@@ -103,12 +115,19 @@ Via de Capacitor CLI kan de ontwikkelaar via een simpele commando zijn of haar R
 \end{figure}
 
 
+\section{Performantie}
+\label{sec:performantie}
 
-(TODO: afbeelding toelichten)
-\paragraph{Performantie}
+OPMERKING: dit onderdeel was eerst uitgeschreven, maar bij het herlezen van de draft was ik niet helemaal tevreden met het resultaat. 
 
-(nog te schrijven)
-Hierin zal er onder meer gesproken worden over de performantie van mobiele applicaties omtrent streaming en hoe dit een impact kan hebben op de keuze van het framework. De belangrijkste performance-indicatoren zullen hierbij besproken worden.
+Volgende aspecten zullen aan bod komen:
+- Performantie van mobiele applicaties omtrent streaming
+- Impact op CPU en RAM en GPU 
+- Impact van resoluties: hogere resoluties hebben logischerwijs een grotere impact op de performantie
+
+
+%(nog te schrijven)
+%Hierin zal er onder meer gesproken worden over de performantie van mobiele applicaties omtrent streaming en hoe dit een impact kan hebben op de keuze van het framework. De belangrijkste performance-indicatoren zullen hierbij besproken worden.
 
 %Dit hoofdstuk bevat je literatuurstudie. De inhoud gaat verder op de inleiding, maar zal het onderwerp van de bachelorproef *diepgaand* uitspitten. De bedoeling is dat de lezer na lezing van dit hoofdstuk helemaal op de hoogte is van de huidige stand van zaken (state-of-the-art) in het onderzoeksdomein. Iemand die niet vertrouwd is met het onderwerp, weet nu voldoende om de rest van het verhaal te kunnen volgen, zonder dat die er nog andere informatie moet over opzoeken \autocite{Pollefliet2011}.
 
