@@ -26,18 +26,20 @@
 %% Maak voor elke fase (behalve het literatuuronderzoek) een NIEUW HOOFDSTUK aan
 %% en geef het een gepaste titel.
 
-Bij elk onderzoek is het belangrijk eerst een verzameling van informatie te verkrijgen om zo een beeld te hebben van de huidige stand van zaken. Dit gebeurde door middel van een literatuurstudie te vinden in het vorige hoofdstuk \ref{ch:stand-van-zaken}. Deze informatie ligt aan de basis van de methodologie die in dit hoofdstuk wordt besproken. Er werd eerder al aangehaald dat er een Proof-of-Concept zal zijn waaruit twee identieke applicaties zullen voortvloeien, één in React Native en één in Ionic. Maar vooraleerst deze geïmplementeerd kunnen worden, moet dit doordacht voorbereid zijn om een correct testscenario uit te bouwen.
+Bij elk onderzoek is het belangrijk eerst een verzameling van informatie te verkrijgen om zo een beeld te hebben van de huidige stand van zaken. Dit gebeurde door middel van een literatuurstudie te vinden in het vorige hoofdstuk. Deze informatie ligt aan de basis van de methodologie die in dit hoofdstuk wordt besproken. Er werd eerder al aangehaald dat er een Proof-of-Concept zal zijn waaruit twee identieke applicaties zullen voortvloeien, één in React Native en één in Ionic met gebruik van React. Maar vooraleerst deze geïmplementeerd kunnen worden, moet dit doordacht voorbereid zijn om een correct testscenario uit te bouwen.
 
 \section{\IfLanguageName{dutch}{Streaming applicatie requirements-analyse}{Streaming application requirements analysis}}%
 \label{sec:requirements-analyse}
 
-Om een streaming applicatie te kunnen ontwikkelen, is het belangrijk eerst de requirements vast te leggen. Dit gebeurde aan de hand van een analyse-proces van verschillende invalshoeken. Aangezien er een vergelijking moet plaatsvinden tussen twee applicaties, ligt er een grote focus op het feit dat deze zo gelijkaardig mogelijk moeten zijn. Dit betekent dat bepaalde aspecten die mogelijks een invloed kunnen hebben op de performantie van de applicatie, maar geen betrekking hebben tot het onderzoek, moeten worden gelimiteerd tot een minimum. Een van de eerste keuzes die hierbij werd gemaakt, is dat de Ionic-applicatie gebruik zal maken van het React-framework. Ionic biedt meerdere frameworks aan om software te ontwikkelen, maar aangezien React Native al steunt op React, zal de keuze voor hetzelfde core-framework mogelijke side effects beperken. Indien we dit onderzoek verder veralgemenen, biedt deze keuze ook een beter overzicht tussen de verschillen van performantie tussen Hybrid en Cross-Platform frameworks.
+Om een streaming applicatie te kunnen ontwikkelen, is het belangrijk eerst de requirements vast te leggen. Dit gebeurde aan de hand van een analyse-proces met verschillende invalshoeken. Aangezien er een vergelijking moet plaatsvinden tussen twee applicaties, ligt er een grote focus op het feit dat deze zo gelijkaardig mogelijk moeten zijn. Dit betekent dat aspecten die mogelijks een invloed kunnen hebben op de performantie van de applicatie, maar geen betrekking hebben tot het onderzoek, moeten worden gelimiteerd tot een minimum. Deze worden hier verder besproken.
 
-Daarnaast zullen de applicaties vrij beperkt zijn op vlak van functionaliteiten. Beiden zullen bestaan uit een enkele videospeler en enkele knoppen om de video af te spelen. Deze zijn namelijk voldoende om de streaming performantie te testen. Het toevoegen van andere componenten of functionaliteiten, zoals het navigeren tussen verschillende tabbladen of een zoekfunctie om een video te vinden, behoren niet tot de scope van de testscenario's en zouden de resultaten kunnen beïnvloeden en de testen onnauwkeurig maken.
+Zo was een van de eerste keuzes die hierbij werd gemaakt dat de Ionic-applicatie gebruik zal maken van het React-framework. Ionic biedt meerdere frameworks aan om software te ontwikkelen, maar aangezien React Native al steunt op React, zal de keuze voor hetzelfde core-framework mogelijke side effects beperken. Indien er voor een ander framework zoals Angular gekozen zou zijn, zouden mogelijke performantieverschillen tussen React Native en Ionic eerder te wijten zijn aan de verschillende core-frameworks en het eerder een onderzoek worden tussen Angular en React. Dit zou geen betrekking hebben tot dit huidig onderzoek en de resultaten onnauwkeurig maken.
 
-Een ander belangrijk aspect bij het streamen, is de afhankelijkheid van het internet. De snelheid hiervan varieert met grote mate en hangt af van verschillende factoren zoals bijvoorbeeld de locatie van de gebruiker en de drukte op het netwerk. Om deze invloed te minimaliseren, werd er gekozen om alle communicatie via de lokale computer te laten verlopen, zonder de nood aan het internet. Dit betekent dat de videobestanden lokaal opgeslagen zullen worden en de communicatie tussen de applicatie en de videobestanden via de localhost zal verlopen.
+Daarnaast zullen de applicaties vrij beperkt zijn op vlak van functionaliteiten. Beiden zullen bestaan uit een enkele videospeler en enkele knoppen om de video te selecteren. Deze zijn namelijk voldoende om de streaming performantie te testen. Het toevoegen van andere componenten of functionaliteiten, zoals het navigeren tussen verschillende tabbladen of een zoekfunctie om een video te vinden, behoren niet tot de scope van de testscenario's en zouden de resultaten kunnen beïnvloeden. Het is namelijk het streaming-aspect dat centraal staat in dit onderzoek.
 
-Tot slot bleek ook uit de literatuurstudie dat de resolutie van een videostream een invloed kan hebben op de performantie van de applicatie. Hiervoor zal er voor elke video verschillende resoluties worden aangeboden, namelijk 480p, 1080p en 4K. Meer over deze functionaliteiten en de implementatie hiervan zal verder worden besproken in de TODO: REF
+Een ander belangrijke factor bij het streamen, is de afhankelijkheid van het internet. De snelheid hiervan varieert met grote mate en hangt af van verschillende factoren zoals bijvoorbeeld de locatie van de gebruiker en de drukte op het netwerk. Om deze invloed te minimaliseren, werd er gekozen om alle communicatie via de lokale computer te laten verlopen, zonder de nood aan het internet. Dit betekent dat de videobestanden lokaal opgeslagen zullen worden en de communicatie tussen de applicatie en de back-end via de localhost zal verlopen.
+
+Tot slot bleek ook uit Hoofdstuk \ref{sec:performantie} dat de resolutie van een videostream een invloed kan hebben op de performantie van de applicatie. Zo zullen er twee video's aangeboden worden in 1080p (HD) en één in 4K (Ultra HD). Dit zal de applicaties toelaten om te testen hoe ze omgaan met verschillende resoluties en of er een verschil is in performantie tussen beide frameworks. Er zal telkens worden vermeld met welke resoluties de testscenario's werden uitgevoerd en welke resultaten hieruit voortvloeiden.
 
 
 \section{\IfLanguageName{dutch}{Omgeving opzetten}{Setting up the environment}}%
@@ -45,43 +47,43 @@ Tot slot bleek ook uit de literatuurstudie dat de resolutie van een videostream 
 
 Voor het ontwikkelen van de applicaties en de back-end, zal er gebruikt gemaakt worden van Visual Studio Code als IDE. Deze IDE biedt namelijk een uitgebreide ondersteuning voor JavaScript en bijgevolg dus ook voor React. Visual Studio Code beschikt ook over een verscheidenheid aan extensies die het ontwikkelen van applicaties vereenvoudigen. Voor het effectief builden en testen van de applicaties op een Android toestel, werd de keuze gemaakt voor Android Studio. Android Studio beschikt over built-in tools zoals de Android Profiler die de performantie van de applicatie kan meten op basis van verschillende metrics zoals CPU-gebruik en geheugengebruik.
 
-Het Android toestel waarop beide applicaties zullen draaien, is een Google Pixel 7a die draait op Android 13. Verdere specifieke Android-configuraties zijn als volgt en identiek voor beide applicaties:
+Het Android toestel waarop beide applicaties zullen draaien, is een Google Pixel 7a dat draait op Android 14 (API level 34). Verdere specifieke Android-configuraties zijn als volgt en identiek voor beide applicaties:
 \begin{itemize}
     \item Gradle versie 8.2.1
     \item Android Gradle Plugin versie 8.2.1
     \item minSdkVersion: 23
-    \item targetSdkVersion: 33
-    \item compileSdkVersion: 33
+    \item targetSdkVersion: 34
+    \item compileSdkVersion: 34
 \end{itemize}
 
 
 \section{\IfLanguageName{dutch}{Proof of Concept}{Proof of Concept}}%
 \label{sec:proof-of-concept}
 
-De Proof-of-Concept is de kern van dit onderzoek. Een uitgebreidere uitleg over de implementatie en de uitvoering van de testscenario's zal verder worden besproken in de TODO: REF.
+De Proof-of-Concept is de kern van dit onderzoek. Een uitgebreidere uitleg over de implementatie en de uitvoering van de testscenario's zal verder worden besproken in Hoofdstuk~\ref{ch:proof-of-concept}.
 
-De back-end werd gebouwd met Express.js v4.19.2. Deze bestaat uit één enkele API-endpoint die lokaal opgeslagen videobestanden in verschillende resoluties opsplitst in aparte stukken van variërende grootte (zie ook TODO: ref). Deze API-endpoint zal lokaal toegankelijk zijn via een GET-request.
+De back-end wordt gebouwd met Express.js v4.19.2. Deze bestaat uit één enkele API-endpoint die lokaal opgeslagen videobestanden in verschillende resoluties opsplitst in aparte stukken om terug te sturen naar de client. Deze API-endpoint zal lokaal toegankelijk zijn via een GET-request.
 
-Hieropvolgend werd er een front-end website ontwikkeld met behulp van het React-framework v18.2.0. Deze website vormt als het ware de basis voor beide mobiele applicaties en bevat alle benodigde componenten die werden vastgesteld in de requirements-analyse. De website bestaat met andere woorden uit een Header-component met de titel van de applicatie, een VideoPlayer-component die videobeelden kan afspelen, en verschillende Button-componenten voor het selecteren van een video of het kiezen van een bepaalde resolutie.
+Hieropvolgend wordt er een front-end website ontwikkeld met behulp van het React-framework v18.2.0. Deze website vormt als het ware de basis voor beide mobiele applicaties en bevat alle benodigde componenten die werden vastgesteld in de requirements-analyse. De website bestaat met andere woorden uit een Header-component met de titel van de applicatie, een VideoPlayer-component die videobeelden kan afspelen, en verschillende Button-componenten voor het selecteren van een video.
 
-Vervolgens werd deze website omgezet naar een Ionic-applicatie (versie 7.2.0) via de ingebouwde Capacitor-plugin v6.0.0 (TODO: zie ook ref). Aangezien Ionic via de Capacitor de React-website direct converteert naar een native-applicatie, was er geen nood aan het herimplementeren van code. Deze steunt namelijk op dezelfde HTML-tags en CSS-stijlen als de originele website. De applicatie werd vervolgens gebuild en geïnstalleerd op het Android-toestel op basis van de eerder besproken Android-configuraties. Tot slot werd er nog een React Native-build gemaakt op basis van de originele React-website. Hiervoor werd er gesteund op versie 0.74.0 van React Native. Voor deze implementatie was het wel noodzakelijk een deel van de codebase te herimplementeren. Dit komt vanwege het feit dat React Native custom componenten gebruikt in plaats van te steunen op HTML-tags. Hoe deze conversie precies in zijn werk ging, wordt verder toegelicht in de TODO: REF.
+Vervolgens wordt deze website omgezet naar een Ionic-applicatie (versie 7.2.0) via de ingebouwde Capacitor-plugin v6.0.0. Aangezien Ionic via de Capacitor de React-website direct converteert naar een native-applicatie, is er geen nood aan het herimplementeren van code. Deze steunt namelijk op dezelfde HTML-tags en CSS-stijlen als de originele website. De applicatie wordt daarna gebuild en geïnstalleerd op het Android-toestel op basis van de eerder besproken Android-configuraties. Tot slot zal er nog een React Native-build gemaakt worden op basis van de originele React-website. Hiervoor steunt de applicatie op versie 0.74.0 van React Native. Voor deze implementatie is het wel noodzakelijk een deel van de codebase te herimplementeren. Dit komt vanwege het feit dat React Native custom componenten gebruikt in plaats van te steunen op HTML-tags. Hoe deze conversie precies in zijn werk gaat, wordt verder toegelicht in Hoofdstuk~\ref{sec:react-native-applicatie}.
 
 \section{\IfLanguageName{dutch}{Testen en resultaten}{Testing and results}}%
 \label{sec:testen-en-resultaten}
 
-Bij het testen werd er gebruik gemaakt van Android Profiler. Deze tool, die ingebouwd zit in Android Studio, is een krachtige tool die inzicht biedt in een verscheidenheid aan aspecten van de prestaties van een mobiele Android-applicatie, zoals het CPU-gebruik, geheugengebruik en energieverbruik. Op deze manier kunnen er gedetailleerde gegevens worden verzameld over hoe elke applicatie presteert.
+Bij het testen zal er gebruik gemaakt worden van de Android Profiler. Deze tool, die ingebouwd zit in Android Studio, is een krachtige tool die inzicht biedt in een verscheidenheid aan aspecten van de prestaties van een mobiele Android-applicatie, zoals het CPU-gebruik, geheugengebruik en energieverbruik. Op deze manier kunnen er gedetailleerde gegevens worden verzameld over hoe elke applicatie presteert.
 
-Er werden verschillende testscenario's uitgevoerd om een breed scala aan prestatieaspecten te evalueren. Deze luiden als volgt:
+Er zijn verschillende testscenario's vastgelegd om een breed scala aan prestatieaspecten te evalueren. Deze luiden als volgt:
 
 \begin{itemize}
-    \item \textbf{Cold startup-tijd:} De tijd die nodig is voor de applicatie om op te starten nadat het toestel volledig is afgesloten en terug wordt opgestart.
+    \item \textbf{Cold startup-tijd:} De tijd die nodig is voor de applicatie om op te starten nadat deze app volledig is afgesloten.
     \item \textbf{Warm startup-tijd:} De tijd die nodig is voor elke applicatie om op te starten terwijl deze app al eerder is opgestart. Deze staat als het ware in stand-by modus in het geheugen en is te vergelijken met een typische gebruikservaring waarbij de app terug wordt geopend nadat deze even niet meer werd gebruikt.
-    \item \textbf{Interactie:} Hierbij wordt de responsiviteit van de applicaties getest hoe snel deze reageren op gebruikersinteracties, zoals het klikken op knoppen of het navigeren door de interface. Een typisch scenario zal zijn: de tijd die nodig is om de video in te laden en af te spelen, nadat er een video is geselecteerd.
-    \item \textbf{Video-afspeelprestaties:} Hierbij wordt de prestatie van het afspelen van video's geëvalueerd. Dit omvat factoren zoals laadtijd, buffering en vloeiendheid van de weergave. Deze zullen getest worden op verschillende resoluties.
+    \item \textbf{Interactie:} Hierbij wordt de responsiviteit van de applicaties getest hoe snel deze reageren op gebruikersinteracties, zoals het klikken op knoppen totdat het verwacht resultaat wordt bereikt. Een typisch scenario zal zijn: de tijd die nodig is om de video in te laden en af te spelen, nadat er een video is geselecteerd.
+    \item \textbf{Video-afspeelprestaties:} Hierbij wordt de prestatie van het afspelen van video's geëvalueerd. Dit omvat factoren zoals laadtijd, buffering en vloeiendheid van de weergave. Deze zullen getest worden op zowel 1080p als 4K resolutie.
     \item \textbf{CPU-gebruik:} De hoeveelheid CPU die wordt gebruikt door de applicatie tijdens het inladen en afspelen van een video.
     \item \textbf{Geheugengebruik:} De hoeveelheid RAM-geheugen die wordt gebruikt door de applicatie tijdens het inladen en afspelen van de video.
-    \item \textbf{Energieverbruik:} De hoeveelheid energie die wordt verbruikt door de applicatie tijdens het inladen en afspelen van de video.
-    \item \textbf{Grootte van de applicatie:} Hoewel dit niet rechtstreeks een invloed heeft op de performantie van de applicatie, kan het wel interessant zijn om eens kort stil te staan bij de APK-grootte (= de installatiegrootte) van de applicatie en de effectieve applicatiegrootte die deze uiteindelijk inneemt op het toestel.
+    %\item \textbf{Energieverbruik:} De hoeveelheid energie die wordt verbruikt door de applicatie tijdens het inladen en afspelen van de video.
+    \item \textbf{Grootte van de applicatie:} Hoewel dit niet rechtstreeks een invloed heeft op de performantie van de applicatie, kan het wel interessant zijn om eens kort stil te staan bij de APK-grootte (= de installatiegrootte) van de applicatie.
 \end{itemize}
 
-Hoe deze testen precies werden uitgevoerd en welke resultaten hieruit voortvloeiden, wordt in het volgend hoofdstuk besproken.
+Hoe deze testen precies zullen worden uitgevoerd en welke resultaten hieruit voortvloeien, wordt in het volgend hoofdstuk besproken.

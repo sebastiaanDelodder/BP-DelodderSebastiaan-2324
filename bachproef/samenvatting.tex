@@ -45,4 +45,42 @@
 
 \chapter*{\IfLanguageName{dutch}{Samenvatting}{Abstract}}
 
-\lipsum[1-4]
+Op het gebied van mobiele app-ontwikkeling staat men vaak voor de keuze tussen het ontwikkelen voor Android en/of iOS. Hierbij wordt er vaak gekozen voor het native programmeren, waarbij een applicatie wordt geïmplementeerd in een programmeertaal die specifiek is voor dat platform. Dit betekent dat mobiele applicaties meermaals geïmplementeerd moeten worden indien deze voor meerdere platformen bestemd zijn. Cross-Platform en Hybrid frameworks bieden een oplossing voor dit probleem door te steunen op één codebase. Dit kan voordelen bieden op vlak van ontwikkeltijd en kosten, iets wat vooral voor kleinere softwarebedrijven en start-ups interessant kan zijn.
+
+Dit onderzoek richt zich op het vergelijken van de prestaties van twee populaire frameworks: Ionic als voorbeeld van een Hybrid framework en React Native als voorbeeld van een Cross-Platform framework. Aangezien React Native steunt op het React-framework en Ionic de optie aanbiedt om ook hiermee te programmeren, vormt het een interessant onderzoeksdomein om deze met elkaar te vergelijken, met als doel de voor- en nadelen van beide in kaart te brengen. Vanwege de huidige opkomst en populariteit van streamingdiensten, werd er gekeken naar de performantie bij het ontwikkelen van streaming-applicaties op Android-toestellen. 
+
+Er werd een Proof-of-Concept uitgevoerd waarbij een identieke streaming-applicatie werd ontwikkeld in zowel React Native als Ionic. Deze applicaties werden vervolgens getest op kritieke performantie-aspecten zoals CPU-gebruik, laadtijden en geheugengebruik. Uit de resultaten bleek dat op veel vlakken Ionic beter presteerde dan React Native. Misschien eerder onverwacht, aangezien er vaak wordt beweerd dat React Native betere prestaties levert door het gebruik van native componenten. Dit valt te wijten aan het feit dat Ionic slechts gebruik maakt van een WebView-component, terwijl React Native met puur native componenten van het Android OS werkt en hierdoor meer tijd moet spenderen aan het inladen en renderen van deze componenten en meer resources verbruikt.
+
+Ondanks de mogelijkheden die beide frameworks bieden om native componenten te gebruiken zoals de camera of de GPS, verdiept dit onderzoek zich niet in deze aspecten. Het focust zich enkel op een specifieke use case, namelijk het streamen van video's.
+
+
+
+
+
+
+
+
+%Er werd een Proof-of-Concept uitgevoerd waarbij een identieke streaming-applicatie werd ontwikkeld in zowel React Native als Ionic. Deze applicaties werden vervolgens getest op kritieke performance-aspecten zoals CPU-gebruik, laadtijden en geheugengebruik in gecontroleerde omstandigheden om objectieve en vergelijkbare resultaten te garanderen. De resultaten toonden aan dat React Native iets efficiënter is in CPU-gebruik vergeleken met Ionic, terwijl beide frameworks vergelijkbare laadtijden hadden, met een lichte voorsprong voor React Native. Wat betreft geheugengebruik bleek Ionic meer geheugen te gebruiken dan React Native, wat kan leiden tot lagere prestaties op oudere of minder krachtige apparaten.
+
+%De conclusie van dit onderzoek is dat React Native iets beter presteert dan Ionic in termen van CPU-gebruik en laadtijden, hoewel het verschil minimaal is. Beide frameworks zijn geschikte keuzes voor het ontwikkelen van streaming-applicaties op Android, maar React Native biedt een lichte performancevoorsprong. Voor ontwikkelaars en bedrijven die maximale performance willen behalen met een beperkt budget, wordt React Native aanbevolen. Voor projecten waar tijd- en kostenefficiëntie belangrijker zijn dan de allerhoogste performance, kan Ionic ook een goede keuze zijn. Het onderzoek richtte zich enkel op de Android-platformprestaties en hield geen rekening met andere factoren zoals de ontwikkelsnelheid, onderhoudsgemak en gebruikservaring op iOS. Verdere studies kunnen deze aspecten onderzoeken om een vollediger beeld te geven. Dit onderzoek biedt waardevolle inzichten voor ontwikkelaars en kleinere softwarebedrijven om een weloverwogen keuze te maken voor het ontwikkelen van performante streaming-applicaties op Android.
+
+
+
+
+
+
+
+
+
+
+
+
+%Op het gebied van mobiele app-ontwikkeling bestaat er altijd een keuze tussen het ontwikkelen voor Android en/of iOS. De meeste Android-applicaties worden geschreven in Java en Kotlin, terwijl iOS-applicaties in Swift worden geschreven, een taal ontwikkeld door Apple. Het ontwikkelen van dezelfde applicatie voor beide platformen via een native aanpak is echter kostbaar en tijdrovend. Native ontwikkeling, waarbij een applicatie specifiek voor één platform wordt gemaakt, betekent dat Swift-applicaties niet op Android kunnen draaien en vice versa. Dit draagt bij aan de hoge kosten van ontwikkeling voor beide platformen.
+
+%Cross-platform ontwikkeling biedt een oplossing voor dit probleem. Hierbij wordt de applicatie één keer geschreven en kan vervolgens op verschillende platformen draaien. Dit kan gedaan worden met talen die platformonafhankelijk zijn, zoals JavaScript en C#. Een nadeel hiervan is dat de applicatie niet volledig geoptimaliseerd is voor elk platform, wat kan resulteren in een tragere en minder goede gebruikerservaring.
+
+%Deze bachelorproef richt zich op het vergelijken van twee cross-platform frameworks, namelijk React Native en Ionic, op het Android-platform. React Native is ontwikkeld door Facebook en Ionic door Drifty Co. Bij deze vergelijking ligt de focus op de prestaties van de applicaties, specifiek op CPU-gebruik, laadtijden en geheugengebruik. De keuze voor deze frameworks is gebaseerd op hun populariteit en toegankelijkheid, aangezien beide open-source en gratis te gebruiken zijn.
+
+%Om dit te onderzoeken zal een Proof-of-Concept worden uitgevoerd waarbij een identieke streaming-applicatie wordt ontwikkeld in zowel React Native als Ionic. Deze applicatie zal video's afspelen en moet snel en zonder haperingen beeldmateriaal kunnen laden, waarbij factoren zoals internetverbinding en processorkracht cruciaal zijn. De applicaties zullen worden getest op kritieke prestatieaspecten, zoals CPU-gebruik, en de resultaten zullen worden geanalyseerd en vergeleken. Er zullen verschillende versies van de applicatie worden ontwikkeld om diverse aspecten uitvoerig te testen en de oorzaken van eventuele prestatieverschillen te identificeren.
+
+%Het onderzoek is gericht op ontwikkelaars en kleine tot middelgrote softwarebedrijven die met een beperkt budget hun streaming-applicatie op een zo groot mogelijke markt willen uitbrengen. Het biedt inzicht in welk framework het meest geschikt is voor de ontwikkeling van een performante streaming-applicatie op Android, waardoor deze doelgroep een weloverwogen keuze kan maken bij het ontwikkelen van hun applicatie.
