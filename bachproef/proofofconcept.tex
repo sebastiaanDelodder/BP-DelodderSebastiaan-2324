@@ -180,7 +180,7 @@ const VideoPlayer = ({videoId}) => {
     // Retourneren van de JSX met het video-element
     return (
       <video ref={videoRef} width={vidWidth} height={vidHeight} controls>
-        <source src={`http://192.168.X.XXX:3000/videos/\${videoId}`}
+        <source src={`http://192.168.X.XXX:3000/videos/${videoId}`}
           type="video/mkv"></source>
         Your browser does not support the video tag.
       </video>
