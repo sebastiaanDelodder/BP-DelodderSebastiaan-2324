@@ -195,7 +195,7 @@ const VideoPlayer = ({videoId}) => {
 
 Nu de React-website is opgezet, kan er overgegaan worden tot het ontwikkelen en/of omzetten naar de mobiele applicaties. Uit Hoofdstuk \ref{sec:ionic} bleek dat er eigenlijk geen verdere aanpassingen hoeven te gebeuren aan de bestaande React-website om deze te kunnen omzetten naar een Ionic-applicatie. Ter verduidelijking werd er voor deze Ionic-applicatie gebruik gemaakt van het React-framework, alhoewel er hiervoor ook de keuze is om een andere, door Ionic ondersteund framework, te gebruiken. Dit heeft als troef dat de originele website-codebase letterlijk kan worden hergebruikt voor de mobiele applicatie.
 
-Deze conversie gebeurt aan de hand van de Capacitor-plugin v6.0.0. De Ionic-applicatie zelf is dan weer gebouwd met versie 7.2.0 van Ionic. De combinatie van deze twee plugins maakt het mogelijk om de React-website te converteren naar een native-applicatie voor Android. Dit wordt bereikt door het aanmaken van twee bestanden: \verb|ionic.config.json| en \verb|capacitor.config.json|. Dit eerste bestand bevat the instellingen voor de Ionic-applicatie, zoals de naam en het feit dat deze applicatie steunt op React. Dit ziet er als volgt uit:
+Deze conversie gebeurt aan de hand van de Capacitor-plugin v6.0.0. De Ionic-applicatie zelf is dan weer gebouwd met versie 7.2.0 van Ionic. De combinatie van deze twee plugins maakt het mogelijk om de React-website te converteren naar een native-applicatie voor Android. Dit wordt bereikt door het aanmaken van twee bestanden: \verb|ionic.config.json| en \verb|capacitor.config.json|. Dit eerste bestand bevat de instellingen voor de Ionic-applicatie, zoals de naam en het feit dat deze applicatie steunt op React. Dit ziet er als volgt uit:
 
 \begin{mdframed}[backgroundcolor=bg]
   \begin{minted}[breaklines]{json}
@@ -347,7 +347,7 @@ Gezien de ontwikkeling van zowel de Ionic- als de React Native-applicaties nu vo
 
 De term cold startup-tijd verwijst naar de tijd die nodig is voor een applicatie om op te starten vanaf het begin. Dit in een situatie waarbij de applicatie nog niet is geopend (zoals bij het opstarten van het toestel) of na het volledig afsluiten van de app. Deze meting werd uitgevoerd door de applicatie eerst telkens volledig af te sluiten door een 'force stop' uit te voeren op de emulator en vervolgens de applicatie opnieuw te openen. Aan de hand van de logs en de Profiler van Android Studio kon de tijd gemeten worden vanaf het aanklikken van het icoon, tot wanneer de componenten volledig zijn ingeladen op het scherm. Er valt hierbij op te merken dat de videocomponent nog niet wordt ingeladen vanwege het feit dat er geen video is geselecteerd. Dit wordt in een latere fase onderzocht.
 
-Dit waren de resultaten na twintig metingen:
+De resultaten na twintig metingen zijn te zien in tabel \ref{tab:cold_startup}.
 
 \begin{table}[htbp]
   \centering
@@ -409,7 +409,7 @@ Dit waren de resultaten na twintig metingen:
   \label{fig:Boxplot van de cold startup-tijd voor Ionic en React Native applicaties}
 \end{figure}
 
-Deze resultaten werden vervolgens in een boxplot weergegeven om een beter beeld te verkrijgen van de spreiding van de data. Dit wordt weergegeven in het bovenstaande Figuur \ref{fig:Boxplot van de cold startup-tijd voor Ionic en React Native applicaties}. Vervolgens werd er een t-test uitgevoerd om aan te tonen of er een significant verschil is tussen de gemiddelden van de cold startup-tijden bij Ionic en React Native. Als nulhypothese werd er vastgelegd dat er geen significant verschil is tussen de gemiddelden. De alternatieve hypothese, op basis van de boxplot en de tabel, was dat de resultaten voor Ionic lager zouden zijn dan die van React Native. De analyse werd uitgevoerd met een vastgesteld significantieniveau van \(0.05\). Uit deze test bleek dat de p-waarde \(1.312^{-36}\) bedroeg. Dit is aanzienlijk lager dat het significantieniveau en betekent dat de nulhypothese kan worden verworpen. Dit wijst er bovendien op dat de cold startup-tijden afhankelijk zijn van het type framework en dat Ionic inderdaad over significant snellere cold startup-tijden beschikt dan React Native. Dit kan een belangrijke factor zijn voor de gebruikerservaring van een applicatie. Een verdere verklaring en interpretatie van deze resultaten wordt, zoals eerder vermeld, gegeven in het volgende hoofdstuk.
+Deze resultaten werden vervolgens in een boxplot weergegeven om een beter beeld te verkrijgen van de spreiding van de data. Dit wordt weergegeven in Figuur \ref{fig:Boxplot van de cold startup-tijd voor Ionic en React Native applicaties}. Vervolgens werd er een t-test uitgevoerd om aan te tonen of er een significant verschil is tussen de gemiddelden van de cold startup-tijden bij Ionic en React Native. Als nulhypothese werd er vastgelegd dat er geen significant verschil is tussen de gemiddelden. De alternatieve hypothese, op basis van de boxplot en de tabel, was dat de resultaten voor Ionic lager zouden zijn dan die van React Native. De analyse werd uitgevoerd met een vastgesteld significantieniveau van \(0.05\). Uit deze test bleek dat de p-waarde \(1.312^{-36}\) bedroeg. Dit is aanzienlijk lager dat het significantieniveau en betekent dat de nulhypothese kan worden verworpen. Dit wijst er bovendien op dat de cold startup-tijden afhankelijk zijn van het type framework en dat Ionic inderdaad over snellere cold startup-tijden beschikt dan React Native. Dit kan een belangrijke factor zijn voor de gebruikerservaring van een applicatie. Een verdere verklaring en interpretatie van deze resultaten wordt, zoals eerder vermeld, gegeven in het volgende hoofdstuk.
 
 
 \subsection{Warm startup-tijd}
@@ -477,13 +477,13 @@ Warm startup-tijd verwijst naar de tijd die nodig is voor een applicatie om opni
   \label{fig:Boxplot van de warm startup-tijd voor Ionic en React Native applicaties}
 \end{figure}
 
-Ook voor deze gegevens werd er een boxplot gemaakt (zie Figuur \ref{fig:Boxplot van de warm startup-tijd voor Ionic en React Native applicaties}). Vervolgens werd er opnieuw een t-test uitgevoerd om te zien of er een significant verschil is tussen de gemiddelden van de warm startup-tijden bij beide frameworks. De nulhypothese was dat er geen verschil is tussen de gemiddelden en als alternatieve hypothese dat de resultaten voor React Native lager zouden zijn dan die van Ionic. Deze test werd opnieuw uitgevoerd met een significantieniveau van \(0.05\). De p-waarde had als waarde \(8.244^{-8}\), wat lager is dan de significantieniveau. Hieruit kan geconcludeerd worden dat de nulhypothese kan verworpen worden en dat React Native over het algemeen iets sneller blijkt te zijn dan Ionic, alhoewel dit verschil slechts over enkele milliseconden gaat en eigenlijk op gebruikersniveau quasi 
+Ook voor deze gegevens werd er een boxplot gemaakt (zie Figuur \ref{fig:Boxplot van de warm startup-tijd voor Ionic en React Native applicaties}). Vervolgens werd er opnieuw een t-test uitgevoerd om te zien of er een significant verschil is tussen de gemiddelden van de warm startup-tijden bij beide frameworks. De nulhypothese was dat er geen verschil is tussen de gemiddelden en als alternatieve hypothese dat de resultaten voor React Native lager zouden zijn dan die van Ionic. Deze test werd opnieuw uitgevoerd met een significantieniveau van \(0.05\). De p-waarde had als waarde \(8.244^{-8}\), wat lager is dan de significantieniveau. Hieruit kan geconcludeerd worden dat de nulhypothese kan verworpen worden en dat React Native over het algemeen iets sneller blijkt te zijn dan Ionic, alhoewel dit verschil slechts over enkele milliseconden gaat en eigenlijk op gebruikersniveau quasi niet veel voorstelt.
 
 
 \subsection{Interactie}
 \label{subsec:interactie}
 
-De interactie met de applicaties werd als vrij responsief ervaren. Het was mogelijk om vrij snel te schakelen tussen de verschillende video's door op de knoppen te klikken. Vanaf een knop werd aangeklikt, reageerde de interface onmiddellijk door de videospeler te renderen en binnen een tijdspanne van 2-3 seconden de video af te spelen. Ondanks dat er een pauze was tussen het klikken op de knop en het effectief inladen van de video, werd deze pauze niet als storend ervaren en werd de video snel en vloeiend afgespeeld. Bij het meten werd er deze keer opnieuw gekeken naar de Android Profiler en de logs van Android Studio om de reactietijden te meten. De resultaten van deze metingen zijn te vinden in de volgende tabel.
+De interactie met de applicaties werd als vrij responsief ervaren. Het was mogelijk om vrij snel te schakelen tussen de verschillende video's door op de knoppen te klikken. Vanaf een knop werd aangeklikt, reageerde de interface onmiddellijk door de videospeler te renderen en binnen een tijdspanne van 2-3 seconden de video af te spelen. Ondanks dat er een pauze was tussen het klikken op de knop en het effectief inladen van de video, werd deze pauze niet als storend ervaren en werd de video snel en vloeiend afgespeeld. Bij het meten werd er deze keer opnieuw gekeken naar de Android Profiler en de logs van Android Studio om de reactietijden te meten. De resultaten van deze metingen zijn te vinden in de tabel op de volgende pagina.
 
 %erbij vermelden dat emulator stottert
 
@@ -548,7 +548,7 @@ De interactie met de applicaties werd als vrij responsief ervaren. Het was mogel
   \label{fig:Boxplot van de tijd voor het inladen van de video na het klikken op een knop voor Ionic en React Native applicaties}
 \end{figure}
 
-Indien voor dit testscenario opnieuw de t-test uitgevoerd wordt met een significantieniveau van \(0.05\), krijgt de p-waarde een waarde van \(8.624^{-6}\). Dit is opnieuw lager dan het significantieniveau en betekent dat ook hier Ionic een kleine voorsprong heeft op React Native. Op zich lijkt dit verschil misschien op het eerste zicht niet zo groot, maar in een situatie waarbij de gebruiker snel wilt schakelen tussen verschillende video's, om bijvoorbeeld de juiste video te vinden, kan dit na enkele keren toch wel een merkbaar verschil beginnen worden tussen beide applicaties. Vanwege deze reden wordt Ionic hier als een betere keuze beschouwd op vlak van het ophalen en inladen van de video's.
+Indien voor dit testscenario opnieuw de t-test uitgevoerd wordt met een significantieniveau van \(0.05\), krijgt de p-waarde een waarde van \(8.624^{-6}\). Dit is opnieuw lager dan het significantieniveau en betekent dat ook hier Ionic een kleine voorsprong heeft op React Native. Op zich lijkt dit verschil misschien aanvankelijk niet zo groot, maar in een situatie waarbij de gebruiker snel wilt schakelen tussen verschillende video's, om bijvoorbeeld de juiste video te vinden, kan dit na enkele keren toch wel een merkbaar verschil beginnen worden tussen beide applicaties. Vanwege deze reden wordt Ionic hier als een betere keuze beschouwd op vlak van het ophalen en inladen van de video's.
 
 
 \subsection{Video afspeelprestaties}
@@ -562,15 +562,9 @@ Echter op basis van onderstaande metingen, blijkt dat de haperingen eerder te wi
 \subsection{CPU-gebruik}
 \label{subsec:cpu-gebruik}
 
-Het CPU-gebruik werd telkens als volgt gemeten. Allereerst werd de applicatie de eerste keer opgestart nadat deze volledig was afgesloten. Vervolgens werd de eerste meting uitgevoerd totdat de applicatie volledig was opgestart. Aan de hand van de Android Profiler in Android Studio werd er gekeken naar het CPU-gebruik van de applicatie en werd hiervan het gemiddelde genomen. De volgende test werd uitgevoerd nadat de app was opgestart, met andere woorden wanneer de app "idle" was en gebeurde telkens over een periode van exact 5 seconden. Hierna werden beide 1080p video's getest en als laatste de 4k video, telkens begon de meting vanaf het aanklikken van de knop tot exact 5 seconden later, wanneer de video al enkele seconden aan het afspelen was. Ook hiervan werd er telkens het gemiddelde genomen van het CPU-gebruik. Deze metingen werden een vijftiental keer herhaald om een beter beeld te verkrijgen van de variabiliteit van de data.
+Het CPU-gebruik werd telkens als volgt gemeten. Allereerst werd de applicatie de eerste keer opgestart nadat deze volledig was afgesloten. Vervolgens werd de eerste meting uitgevoerd totdat de applicatie volledig was opgestart. Aan de hand van de Android Profiler in Android Studio werd er gekeken naar het CPU-gebruik van de applicatie tijdens de opstartperiode en werd hiervan het gemiddelde genomen. De daaropvolgende test werd uitgevoerd nadat de app was opgestart, met andere woorden wanneer de app ``idle'' was. Dit gebeurde door opnieuw het gemiddelde van het CPU-gebruik te bepalen over een periode van exact 5 seconden. Hierna werden beide 1080p video's getest en als laatste de 4k video, waarbij de meting telkens begon vanaf het aanklikken van de knop tot exact 5 seconden later, wanneer de video al even aan het streamen was. Ook hiervan werd er telkens het gemiddelde genomen van het CPU-gebruik. Deze metingen werden een vijftiental keer herhaald om een beter beeld te verkrijgen van de variabiliteit van de data.
 
-%Het CPU-gebruik werd telkens als volgt gemeten. Allereerst werd de applicatie de eerste keer opgestart nadat deze volledig was afgesloten. Vervolgens werd er een meting gedaan zonder dat er een video werd afgespeeld. Hierna werden beide 1080p video's getest en als laatste de 4k video. De metingen werden gedaan aan de hand van de Android Profiler in Android Studio. Hierbij werd er gekeken naar de CPU-gebruikspieken en -dalen die optraden tijdens de verschillende activiteiten.
-
-%Voor Ionic vertoonde de applicatie bij het opstarten een piek van 41\% CPU-gebruik. Zonder het afspelen van video's bleef het CPU-gebruik hierna tussen 0-1\%. Bij het afspelen van een 1080p video varieerde het CPU-gebruik tussen 22-37\%, met enkele dalingen van 12\% en pieken tot 43\% van het totale CPU-gebruik. Bij het afspelen van een 4k video waren er iets hogere variaties tussen 32-52\%, met een drop van 32\% en een piek van 68\%.
-
-%Bij de observatie van het CPU-gebruik bij React Native tijdens dezelfde activiteiten, valt op dat er bij het starten van de applicatie een piek van 50\% CPU-gebruik optreedt. Dit is een gelijkaardige piek zoals bij Ionic. Zonder het afspelen van video's bleef het CPU-gebruik tussen de 1-2\% zitten. Wanneer een 1080p video werd afgespeeld, varieert het CPU-gebruik tussen 35-41\% bij het inladen van de video en varieerde vervolgens tussen de 38-70\%, met enkele dalingen tot 20\% en hoge pieken tot zelfs 90\%. Bij het afspelen van een 4k video varieerde dit ook vrij hard, met een dieptepunt van 26\% en een piek van 92\%, en een algemene variatie tussen 35-82\%. 
-
-%Over het algemeen tonen deze observaties aan dat het CPU-gebruik vrij hoog kan zijn bij het afspelen van video's, vooral bij hogere resoluties zoals 4k. Dit kan leiden tot een hoger energieverbruik en een snellere batterijafvoer, wat belangrijk is om in overweging te nemen bij het ontwikkelen van video-intensieve applicaties. Daarnaast bleek ook dat React Native telkens een hoger CPU-gebruik had dan Ionic. Een mogelijke verklaring wordt later besproken.
+In de tabellen \ref{tab:cpu1} en \ref{tab:cpu2} zijn de resultaten van deze metingen te vinden. Hierbij werd de letter 'I' gebruikt voor Ionic en 'RN' voor React Native. Daarnaast verwijst de afkorting 'HD-1' naar de eerste 1080p video, 'HD-2' naar de tweede 1080p video en 'UHD' naar de 4k video.
 
 
 \begin{table}[htbp]
@@ -661,6 +655,24 @@ Het CPU-gebruik werd telkens als volgt gemeten. Allereerst werd de applicatie de
   \label{tab:cpu2}
 \end{table}
 
+\begin{table}[htbp]
+  \centering
+  \footnotesize
+  \begin{tabular}{|c|c|c|}
+      \hline
+      \textbf{Testvideo} & \textbf{P-waarde} & \textbf{Beste resultaat} \\
+      \hline
+      Eerste HD-video & \(2.574^{-12}\) & Ionic \\
+      \hline
+      Tweede HD-video & \(5.975^{-8}\) & Ionic \\
+      \hline
+      UHD-video & \(1.958^{-6}\) & Ionic \\
+      \hline
+  \end{tabular}
+  \caption{Resultaten van de t-test voor het CPU-gebruik bij het afspelen van video's}
+  \label{tab:cpu_ttest}
+\end{table}
+
 \begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{img/cpu/startup}
@@ -690,35 +702,38 @@ Het CPU-gebruik werd telkens als volgt gemeten. Allereerst werd de applicatie de
 \end{figure}
 
 
-Bij het opstarten van de applicatie vertoonde de Ionic-applicatie een vrij hoger gemiddeld CPU-gebruik in tegenstelling tot React Native. Dit is te zien in de bovenstaande tabel \ref{tab:cpu1} en de bijhorende boxplot in Figuur \ref{fig:Boxplot van het CPU-gebruik van de Ionic en React Native applicaties bij het opstarten}. Echter eens beide applicaties waren opgestart, bleef het CPU-gebruik van beide applicaties ongeveer op hetzelfde niveau hangen, namelijk rond de 0 en 1 procent. Aangezien het hier slechts over een zeer laag percentage gaat en eigenlijk bijna verwaarloosbaar is, werd hier niet dieper op ingegaan. Het is namelijk +++
+Bij het opstarten van de applicatie vertoonde de Ionic-applicatie een hoger gemiddeld CPU-gebruik in tegenstelling tot React Native. Dit is te zien in de bovenstaande tabel en de bijhorende boxplot op Figuur \ref{fig:Boxplot van het CPU-gebruik van de Ionic en React Native applicaties bij het opstarten}. Echter toen beide applicaties waren opgestart, bleef het CPU-gebruik van beide applicaties ongeveer op hetzelfde niveau hangen, namelijk rond de 0 en 1 procent. Aangezien het hier slechts over een zeer laag percentage gaat en eigenlijk bijna verwaarloosbaar is, werd hier niet dieper op ingegaan. Er kan namelijk moeilijk over een significant performantieverschil gesproken worden wanneer het CPU-gebruik zo laag is.
+
+
+Voor de resultaten bij het afspelen van de video's waren er toch wat verschillen op te merken. Op basis van de grafieken en tabellen bleek Ionic hier steeds de overduidelijke winnaar te zijn. Maar om dit toch statistisch te onderbouwen, werd er telkens een t-test uitgevoerd met als significantieniveau opnieuw \(0.05\). De resultaten hiervan zijn te vinden in de tabel \ref{tab:cpu_ttest}. Hieruit blijkt dat er een significant verschil is tussen het CPU-gebruik van Ionic en React Native bij het afspelen van video's. Uit de tabel \ref{tab:cpu2} kan er bovendien zelf een verband worden gelegd tussen de resolutie van de video en het CPU-gebruik. Zo is het CPU-gebruik bij het afspelen van een 4k video aanzienlijk hoger dan bij een 1080p video. Dit heeft dan weer te maken met het feit dat een hogere resolutie meer dataverwerking vereist en dus ook meer CPU-gebruik met zich meebrengt.
+
+
+\subsection{Geheugengebruik}
+\label{subsec:geheugengebruik}
+
+Het geheugengebruik werd ook gemeten aan de hand van de Android Profiler in Android Studio. Hierbij werd er gekeken naar het piek-geheugengebruik na het opstarten van de applicatie en bij het afspelen van de video's. De metingen werden telkens vastgelegd in megabytes (MB) en werden een vijftiental keer herhaald. De reden om de piek-geheugengebruik te meten, was omdat het RAM-geheugen na een bepaalde activiteit zoals het inladen van een video, begon af te vlakken tot een vast punt. Dit punt werd dan als piek-geheugengebruik beschouwd. De resultaten van deze metingen zijn te vinden in de tabellen \ref{tab:memory1} en \ref{tab:memory2}. Bij deze tweede tabel is er opnieuw sprake van de afkortingen 'I' en 'RN' voor respectievelijk Ionic en React Native. Daarnaast verwijst 'HD-1' nog steeds naar de eerste 1080p video, 'HD-2' naar de tweede 1080p video en 'UHD' naar de 4k video.
+
+Op basis van de resultaten bleek ook hier dat Ionic een grote voorsprong had op React Native. Enkel na de initiële opstart van de applicatie was er slechts een klein verschil op te merken tussen beide frameworks. Hoe hoger de resolutie van de video, hoe meer RAM-geheugen in gebruik werd genomen door React Native, terwijl Ionic relatief stabiel rond dezelfde waarden bleef hangen. In tabel \ref{tab:memory_ttest} zijn de resultaten van de t-test te vinden met een significantieniveau van \(0.05\). Hieruit kan vastgesteld worden dat Ionic de beste keuze blijkt te zijn op vlak van geheugengebruik bij het streamen.
 
 \begin{table}[htbp]
   \centering
   \footnotesize
   \begin{tabular}{|c|c|c|}
       \hline
-      \textbf{Testvideo} & \textbf{P-waarde} & \textbf{Beste resultaat} \\
+      \textbf{Scenario} & \textbf{P-waarde} & \textbf{Beste resultaat} \\
       \hline
-      Eerste HD-video & \(2.574^{-12}\) & Ionic \\
+      Na opstarten & \(0.00046\) & Ionic \\
       \hline
-      Tweede HD-video & \(5.975^{-8}\) & Ionic \\
+      Eerste HD-video & \(1.371^{-11}\) & Ionic \\
       \hline
-      UHD-video & \(1.958^{-6}\) & Ionic \\
+      Tweede HD-video & \(1.807^{-10}\) & Ionic \\
+      \hline
+      UHD-video & \(7.690^{-25}\) & Ionic \\
       \hline
   \end{tabular}
   \caption{Resultaten van de t-test voor het CPU-gebruik bij het afspelen van video's}
-  \label{tab:cpu_ttest}
+  \label{tab:memory_ttest}
 \end{table}
-
-TODO: TABELLEN AFKORTINGEN UITLEGGEN
-
-Voor de resultaten bij het afspelen van de video's waren er toch wat verschillen te merken. Op basis van de grafieken en tabellen bleek Ionic hier steeds de overduidelijke winnaar te zijn. Maar om dit toch statistisch te onderbouwen, werd er een t-test uitgevoerd met als significantieniveau opnieuw \(0.05\). De resultaten hiervan zijn te vinden in de bovenstaande tabel \ref{tab:cpu_ttest}. Hieruit blijkt dat er een significant verschil is tussen het CPU-gebruik van Ionic en React Native bij het afspelen van video's. Uit de tabel \ref{tab:cpu2} kan er bovendien zelf een verband worden gelegd tussen de resolutie van de video en het CPU-gebruik. Zo is het CPU-gebruik bij het afspelen van een 4k video aanzienlijk hoger dan bij een 1080p video.+++
-
-
-\subsection{Geheugengebruik}
-\label{subsec:geheugengebruik}
-
-Het geheugengebruik werd gemeten aan de hand van de Android Profiler in Android Studio. Hierbij werd er gekeken naar het piek-geheugengebruik na het opstarten van de applicatie en bij het afspelen van de video's. De metingen werden telkens gedaan in megabytes (MB) en werden een vijftiental keer herhaald om een beter beeld te krijgen van de variabiliteit van de data.+ reden waarom
 
 \begin{table}[htbp]
   \centering
@@ -837,43 +852,8 @@ Het geheugengebruik werd gemeten aan de hand van de Android Profiler in Android 
   \label{fig:Boxplot van het piek-geheugengebruik van Ionic en React Native applicaties bij het afspelen van de 4k video}
 \end{figure}
 
-TEKSTTTT
-
-\begin{table}[htbp]
-  \centering
-  \footnotesize
-  \begin{tabular}{|c|c|c|}
-      \hline
-      \textbf{Scenario} & \textbf{P-waarde} & \textbf{Beste resultaat} \\
-      \hline
-      Na opstarten & \(0.00046\) & Ionic \\
-      \hline
-      Eerste HD-video & \(1.371^{-11}\) & Ionic \\
-      \hline
-      Tweede HD-video & \(1.807^{-10}\) & Ionic \\
-      \hline
-      UHD-video & \(7.690^{-25}\) & Ionic \\
-      \hline
-  \end{tabular}
-  \caption{Resultaten van de t-test voor het CPU-gebruik bij het afspelen van video's}
-  \label{tab:cpu_ttest}
-\end{table}
-
-+++TEKSTTT
-
 
 \subsection{Groottes van de applicaties}
 \label{subsec:groottes-van-de-applicaties}
 
-In dit laatste onderdeel zal er nog even kort stilgestaan worden bij de groottes van de APK-bestanden. Dit heeft niet noodzakelijk een impact op de performantie, maar toont wel 
-
-(nog uit te schrijven)
-%Wanneer we kijken naar de omvang van de APK-bestanden voor React en Ionic, zien we een aanzienlijk verschil. De APK-bestandsgrootte voor React bedraagt 155 MB, terwijl die voor Ionic slechts 3,76 MB is. Dit enorme verschil in bestandsgrootte kan verschillende oorzaken hebben, waaronder de complexiteit van de frameworks, de gebruikte bibliotheken en de manier waarop de applicaties worden gebouwd. Over het algemeen suggereert dit dat Ionic mogelijk lichtere en meer efficiënte APK-bestanden produceert in vergelijking met React, wat belangrijk kan zijn voor gebruikers met beperkte opslagruimte op hun apparaten of voor situaties waarin snelle download- en installatietijden van de applicatie van belang zijn.
-
-React Native:
-  - 155 MB .apk size
-
-Ionic: 
-  - 3.76 MB .apk size
-
-(zeer opvallende situatie maar heeft waarschijnlijk te maken met het feit dat React Native de componenten in de app zelf moet inladen, terwijl Ionic gebruik maakt van de webview-engine van het toestel)
+In dit laatste onderdeel zal er nog even kort stilgestaan worden bij de groottes van de APK-bestanden. Dit heeft niet noodzakelijk een impact op de performantie, maar toont wel een interessante vergelijking aan hoe hun interne structuur en de manier waarop ze gebouwd zijn, invloed kunnen hebben op de bestandsgrootte. De APK-bestandsgrootte werd gemeten aan de hand van de grootte van de APK-bestanden die gegenereerd werden bij het bouwen van de applicaties. Het APK-bestand van React Native telde 155 MB, terwijl die van Ionic een gigantisch stuk kleiner was met slechts 3,76 MB. Dit valt te wijten aan het gebruik van native componenten bij React Native. Bij React Native is er meer data vereist om te weten welke componenten er allemaal moeten gebruikt worden en hoe deze moeten samenwerken. Ionic daarentegen maakt gebruik van enkel de webview-engine van het toestel (in dit geval), waardoor de componenten niet in de app zelf moeten ingeladen worden. De webtechnologieën zoals HTML en CSS worden namelijk gebruikt om de componenten te renderen, wat uiteindelijk resulteert in een lichtere en efficiëntere APK-bestandsgrootte.
