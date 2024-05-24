@@ -14,7 +14,25 @@
 % Heeft het onderzoek geleid tot nieuwe vragen die uitnodigen tot verder 
 %onderzoek?
 
-Hierin worden de resultaten van het onderzoek besproken en wordt er een antwoord geformuleerd op de onderzoeksvragen. 
-De grote verschillen tussen React Native en Ionic worden hier nader verklaard.
-Daarnaast wordt er ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
+Met de Proof-of-Concept kon er een duidelijk en uitgebreid beeld geschetst worden van de verschillen tussen React Native en Ionic omtrent streaming. Het is nu belangrijk de bevindingen hier te bespreken en een verklaring te bieden voor de verschijnselen die zich voordeden. Tot slot zal er ook nog een aanleg gegeven worden voor toekomstig onderzoek binnen dit domein.
+
+\section{Verklaringen}
+\label{sec:verklaringen}
+
+Een eerste aspect dat werd onderzocht, waren de laadtijden van de applicaties. Zowel de cold als de warm startup-tijden werden hierbij gemeten. Het grootste verschil was op te merken bij de initiële opstarting, waarbij Ionic een zeer grote voorsprong had op React Native met een verschil van minimum 3 seconden. De verklaring hiervoor is dat Ionic namelijk enkel en alleen, in het geval van de streamingapplicatie, het WebView-component moest opstarten. React Native daarentegen maakt gebruik van verschillende andere componenten van het Android OS en moet bijgevolg meer tijd spenderen aan het inladen en renderen van deze componenten. De warm startup-tijden waren dan weer vrij gelijkaardig. Hoewel React Native een kleine voorsprong had, ging dit slechts over enkele milliseconden en is dit verschil vrijwel verwaarloosbaar. Dit valt dan weer te verklaren doordat de applicatie reeds opgestart is en de componenten reeds in het geheugen ingeladen zijn.
+
+Een volgend onderdeel uit de Proof-of-Concept, was de effectieve interactie met de app. Hierbij bleek het verschil opnieuw te gaan over enkele honderden milliseconden. Ionic kwam net iets beter uit de resultaten dan React Native. Dit valt opnieuw te verklaren door het feit dat React Native met meer native componenten moet werken, waardoor er een kleine vertraging optreedt. Ondanks dat dit over enkele milliseconden gaat, kan dit toch een effect hebben op de gebruikerservaring. Indien een gebruiker snel zou willen wisselen tussen de video's, kan dit kleine verschil toch na een tijdje beginnen oplopen, waardoor er niet langer over milliseconden gesproken kan worden, maar eerder over seconden. Beide applicaties scoorden echter even goed op het effectieve streamen van de video's. De haperingen die optraden of de geluidssynchronisatie die niet altijd even overeenkwam met het beeld, waren eerder te wijten aan de emulator zelf, dan aan de applicaties. Dit vanwege het feit dat deze vertragingen ook aanwezig waren bij het scrollen tussen de applicaties van het toestel en bij het navigeren op het web.
+
+Het CPU-gebruik kan verdeeld worden in twee delen op basis van de resultaten: het opstarten van de applicatie en het streamen van een video. Bij het opstarten bleek React Native de betere oplossing te zijn. Ionic moet namelijk bij de initiële opstart de code eerst nog compilen in de WebView, waardoor er een piek in het CPU-gebruik optreedt. React Native daarentegen heeft deze stap niet nodig ++ en kan veel sneller gebruik maken van de native componenten???. Bij het streamen van een video was het CPU-gebruik dan weer beter bij Ionic.+++
+
+Tot slot werd er ook nog gekeken naar het geheugengebruik van beide applicaties. +++
+
+Er kan dus besloten worden dat over het algemeen Ionic beter scoorde dan React Native. Dit kan misschien zelf eerder gezien worden als een eerder onverwacht resultaat omdat op het internet vaak wordt beweerd dat Cross-Platform frameworks een performantie-voordeel hebben ten opzichte van Hybrid frameworks door het gebruik van native componenten. Deze mindset lijkt zich nog sterk ingeburgerd te zijn omdat deze beweringen vaak op basis waren van onderzoeken die reeds enkele jaren oud zijn. +++
+
+\section{Toekomstig onderzoek}
+\label{sec:toekomstig-onderzoek}
+
+De Proof-of-Concept heeft een duidelijk beeld geschetst van de verschillen tussen React Native en Ionic omtrent streaming. Toch zijn er nog enkele zaken die verder onderzocht kunnen worden. Zo werd er voor dit onderzoek specifiek gekeken naar het Ionic-framework omdat dit framework toelaat om naast het gebruik van webtechnologieën ook gebruik te maken van native componenten van het OS zelf. Het zou bijvoorbeeld interessant kunnen zijn om te onderzoeken hoe Ionic precies omgaat met deze native componenten en welke impact dit heeft op de performantie van de applicatie in tegenstelling tot bijvoorbeeld React Native, die hier echter rond is gebouwd.+++
+
+
 
